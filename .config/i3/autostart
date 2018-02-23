@@ -1,0 +1,48 @@
+#!/bin/sh
+
+##test
+#urxvt -name files -e bash -c "ranger"
+
+## Desktop background color
+xsetroot -solid '#101010' &
+
+## keyboard repeat rate
+xset r rate 200 40
+
+#dropbox
+#/home/gr4yscale/.dropbox-dist/dropboxd &
+
+
+
+
+
+## work
+#chromium --app=https://otherworldly.slack.com/messages/D72R0KDFX/ &
+#chromium --app=https://app.zeplin.io/project/58deb96cf03250bdbe60a4ca &
+
+
+
+## org
+
+#todoist
+#chromium --app="https://todoist.com/app?lang=en#agenda%2Fp1%2C%20%23Brainstorm%20%26%20(p2%20%7C%20p1)%2C%20%23Hack%20%26%20(p2%20%7C%20p1)%2C%20%23Study%20%26%20(p2%20%7C%20p1)%2C%20%23Work%20%26%20(p2%20%7C%20p1)%2C%20%23Errands%20%26%20(p2%20%7C%20p1)%2C%20%23Correspondence%20%26%20(p2%20%7C%20p1)%2C%20%23Chores-Digital%20%26%20(p2%20%7C%20p1)%2C%20%23Chores-IRL%20%26%20(p2%20%7C%20p1)%2C%20%23House%20%26%20(p2%20%7C%20p1)" --new-window &
+
+#emacs, doh
+emacs &
+
+#gcal
+#chromium --app="https://calendar.google.com" --new-window &
+#chromium --app="https://app.simplenote.com" --new-window &
+
+## browsing
+#chromium --class=browsing --new-window https://getpocket.com/a/queue/list/ https://feedly.com https://www.reddit.com/ https://tweetdeck.twitter.com/
+
+## comms
+#chromium --app=https://web.whatsapp.com/ &
+#chromium --app=https://www.messenger.com/ &
+#chromium --app=https://mail.google.com/mail/u/0/#starred &
+
+
+#files
+spacefm &
+
