@@ -21,7 +21,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Return exec urxvt
 
 #bindsym $mod+d exec dmenu_run
-bindsym Control+space exec "rofi -combi-modi drun,window,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
 
 
 ### focus
@@ -225,7 +225,8 @@ assign [window_role="file_manager"] $ws5
 
 
 ### audio....
-
+assign [class="Vocal"] $ws6
+assign [class="Gpodder"] $ws6
 
 
 ### teamviewer fix
