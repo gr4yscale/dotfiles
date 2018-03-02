@@ -15,8 +15,16 @@ export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
 
 
-###### chromium app aliases
 
+# Set up fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# Set up Node Version Manager (slows down launching a terminal, i just source this manually)
+alias nvm-init='source /usr/share/nvm/init-nvm.sh'
+
+
+###### chromium app aliases
 alias gmail='chromium  --app=https://mail.google.com/mail/u/0/#starred'
 alias gcal='chromium --app="https://calendar.google.com" --new-window &'
 alias simplenote='chromium --app="https://app.simplenote.com" --new-window &'
@@ -26,14 +34,9 @@ alias whatsapp='chromium --app=https://web.whatsapp.com'
 alias zeplin='chromium --app=https://app.zeplin.io/project/58deb96cf03250bdbe60a4ca'
 
 
-# Set up fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-
 #youtube-dl (vid)
 alias yt-vid="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -w -i"
 alias yt-aud="youtube-dl -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -w -i -o '%(title)s.%(ext)s'"
 
-
-# Set up Node Version Manager
-#source /usr/share/nvm/init-nvm.sh 
+alias fpvrider='~/bin/FPVFreerider_Recharged_Linux_2018-02-19/FPVFreerider_Recharged.x86_64'
+alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
