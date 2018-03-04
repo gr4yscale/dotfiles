@@ -50,8 +50,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
+### display config scripts
 
 
+bindsym $mod+F9 exec ~/scripts/display_all.sh
+bindsym $mod+F10 exec ~/scripts/display_monitors.sh
+bindsym $mod+F11 exec ~/scripts/display_dining_room.sh
 
 ### window movement
 
