@@ -4,10 +4,41 @@
 
 set $mod Mod4
 
-font pango:FiraCode-Regular 14
+
+## colors/theme
+
+font pango:Monaco 11
+#font pango:FiraCode-Regular 12
+#font pango:DejaVu Sans Mono 12
+
+set $CL_BG #282C34
+set $CL_FG #ABB2BF
+set $CL_CUR #528BFF
+set $CL_BLACK #000000
+set $CL_RED #E06C75
+set $CL_GREEN #98C379
+set $CL_ORANGE #D19A66
+set $CL_BLUE #61AEEE
+set $CL_MAGENTA #C678DD
+set $CL_CYAN #56B6C2
+set $CL_LIGHTGRAY #ABB2BF
+set $CL_DARKGRAY #5C6370
+set $CL_WHITE #FFFFFF
+
+# class                 border      backgr.     text    indicator   child_border
+client.focused          $CL_CUR     $CL_CUR     $CL_BG   $CL_CUR     $CL_CUR
+client.focused_inactive $CL_MAGENTA $CL_MAGENTA $CL_BG   $CL_MAGENTA $CL_MAGENTA
+client.unfocused        $CL_BG      $CL_BG      $CL_CUR  $CL_BG      $CL_BG
+client.urgent           $CL_RED     $CL_RED     $CL_BG   $CL_RED     $CL_RED
+client.placeholder      $CL_BG      $CL_BG      $CL_WHITE $CL_BLACK  $CL_BG
+
+# borders
+new_window pixel 1
+new_float pixel 1
+
+
 floating_modifier $mod
 workspace_layout tabbed
-
 
 
 # kill focused window
@@ -20,9 +51,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+Return exec urxvt
 
+# rofi
+
 #bindsym $mod+d exec dmenu_run
 bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
-
 
 ### focus
 
@@ -189,13 +221,9 @@ bindsym $mod+r mode "resize"
 ### bar config
 
 bar {
-        status_command i3status
-	tray_output primary
-	separator_symbol " | "
-	strip_workspace_numbers yes
-	font pango:FiraCode-Regular 14
+    tray_output none
+    mode invisible
 }
-
 
 
 ### window assignments
@@ -209,7 +237,7 @@ assign [title="*Arduino*"] $ws1
 
 #org
 assign [instance="calendar.google.com"] $ws2
-assign [class="emacs"] $ws2
+assign [class="Emacs"] $ws2
 assign [class="nixnote2"] $ws2
 assign [title="Simplenote - Chromium"] $ws2
 
@@ -233,12 +261,8 @@ assign [class="Vocal"] $ws6
 assign [class="Gpodder"] $ws6
 
 
-### teamviewer fix
-for_window [class="TeamViewer.exe"] floating enable
-
-for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute position 900 px 0 px
-for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
-for_window [title="TeamViewer"] floating enable, move absolute position 0 px 0 px
+### floating windows
+for_window [class="Lxappearence"] floating enable sticky enable border normal
 
 
 # Pulse Audio controls
@@ -257,9 +281,12 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 
+
+
 # Caps lock as control
 exec_always setxkbmap -option ctrl:nocaps
 
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 ### continue autostarting applications
 exec ~/.config/i3/autostart
