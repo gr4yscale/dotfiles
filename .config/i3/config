@@ -25,6 +25,7 @@ set $CL_LIGHTGRAY #ABB2BF
 set $CL_DARKGRAY #5C6370
 set $CL_WHITE #FFFFFF
 
+
 # class                 border      backgr.     text    indicator   child_border
 client.focused          $CL_CUR     $CL_CUR     $CL_BG   $CL_CUR     $CL_CUR
 client.focused_inactive $CL_MAGENTA $CL_MAGENTA $CL_BG   $CL_MAGENTA $CL_MAGENTA
@@ -220,10 +221,32 @@ bindsym $mod+r mode "resize"
 
 ### bar config
 
+## hidden
+#bar {
+#    tray_output none
+#    mode invisible
+#}
+
 bar {
-    tray_output none
-    mode invisible
+        status_command i3status
+	tray_output primary
+	separator_symbol " | "
+	strip_workspace_numbers yes
+	#font pango:FiraCode-Regular 12
+	font pango:Monaco 11
+
+	colors 
+		{
+			background $CL_BG
+			statusline $CL_FG
+			separator $CL_FG
+
+			focused_workspace $CL_CUR $CL_CUR $CL_BG
+			inactive_workspace $CL_BG $CL_BG $CL_LIGHTGRAY
+			urgent_workspace  $CL_RED $CL_RED $CL_BG
+		}
 }
+
 
 
 ### window assignments
@@ -286,7 +309,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Caps lock as control
 exec_always setxkbmap -option ctrl:nocaps
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+#polybar
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 ### continue autostarting applications
 exec ~/.config/i3/autostart
