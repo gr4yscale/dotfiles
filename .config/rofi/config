@@ -1,18 +1,35 @@
 
+
+! set $CL_BG #282C34                                                                                                                                                                                                  
+! set $CL_FG #ABB2BF
+! set $CL_CUR #528BFF
+! set $CL_BLACK #000000
+! set $CL_RED #E06C75
+! set $CL_GREEN #98C379
+! set $CL_ORANGE #D19A66
+! set $CL_BLUE #61AEEE
+! set $CL_MAGENTA #C678DD
+! set $CL_CYAN #56B6C2
+! set $CL_LIGHTGRAY #ABB2BF
+! set $CL_DARKGRAY #5C6370
+! set $CL_WHITE #FFFFFF
+
 rofi.color-enabled: true
-rofi.color-window: #3C4150, #4084D6, #4084D6
-rofi.color-normal: #3C4150, #4084D6, #3C4150, #268bd2, #FFFFFF
-rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
-rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+rofi.color-window: #282C34, #528BFF, #282C34
+rofi.color-normal: #282C34, #ABB2BF, #282C34, #528BFF, #FFFFFF
+rofi.color-active: #282C34, #ABB2BF, #528BFF, #528BFF, #FFFFFF
+rofi.color-urgent: #282C34, #ABB2BF, #282C34, #528BFF, #FFFFFF
+
+rofi.font:                           Monaco 11
+
+! "Padding within rows *DEPRECATED*" Set from: Default
+rofi.line-padding:                   4
 rofi.scrollbar-width: 0
-! rofi.location: 7
 rofi.padding: 2
-! rofi.width: 25
-! rofi.yoffset: -25
-!rofi.lines: 15
 rofi.separator-style: solid
 rofi.scroll-method: 1
 
+!rofi.lines: 15
 
 ! "Enabled modi" Set from: Default
 rofi.modi:                           combi
@@ -25,7 +42,6 @@ rofi.combi-modi:                     window,drun
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
-! rofi.font:                           mono 12
 ! "Border width" Set from: Default
 ! rofi.bw:                             1
 ! "Location on screen" Set from: Default
@@ -83,9 +99,7 @@ rofi.combi-modi:                     window,drun
 ! "Monitor id to show on" Set from: Default
 ! rofi.m:                              -5
 ! "Margin between rows *DEPRECATED*" Set from: Default
-! rofi.line-margin:                    2
-! "Padding within rows *DEPRECATED*" Set from: Default
-! rofi.line-padding:                   1
+rofi.line-margin:                    1
 ! "Pre-set filter" Set from: Default
 ! rofi.filter:                         
 ! "Separator style (none, dash, solid) *DEPRECATED*" Set from: Default
