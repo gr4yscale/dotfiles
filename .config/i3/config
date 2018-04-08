@@ -138,7 +138,7 @@ set $ws2	"2:org"
 set $ws3	"3:browse"
 set $ws4	"4:comms"
 set $ws5	"5:files"
-set $ws6	"6:audio"
+set $ws6	"6:media"
 set $ws7	"7:study"
 set $ws8	"8:photo"
 set $ws9	"9:shell"
@@ -279,10 +279,14 @@ assign [instance="otherworldly.slack.com__messages_D72R0KDFX"] $ws4
 assign [window_role="file_manager"] $ws5
 
 
-### audio....
+### media....
 assign [class="Vocal"] $ws6
 assign [class="Gpodder"] $ws6
+#assign [class="mpv"] $ws6
+for_window [class="mpv"] floating enable sticky enable border normal
 
+### photo
+assign [class="Rawtherapee"] $ws8
 
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal

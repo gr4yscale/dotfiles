@@ -32,6 +32,7 @@ alias messenger='chromium  --app=https://www.messenger.com'
 alias slack='chromium --app=https://otherworldly.slack.com/messages/D72R0KDFX/'
 alias whatsapp='chromium --app=https://web.whatsapp.com'
 alias zeplin='chromium --app=https://app.zeplin.io/project/58deb96cf03250bdbe60a4ca'
+alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
 
 
 #youtube-dl (vid)

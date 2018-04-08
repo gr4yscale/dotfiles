@@ -27,31 +27,32 @@
 (eval-when-compile
   (require 'use-package))
 
+
+
+
+
 ;; Extras
 (require 'evil)
 (require 'evil-leader)
 (require 'evil-org)
+(require 'workgroups2)
+(require 'switch-window)
+(require 'projectile)
 (require 'helm)
-(require 'ox-md)
-;;(require 'helm-config)
-;;(require 'org)
-;;(require 'projectile)
+(require 'helm-config)
+;; needs to happen before the require
+(setq helm-follow-mode-persistent t)
+(require 'helm-projectile)
+(require 'helm-ag)
 
-;; inline config, hmmm
-(eval-after-load "org"
-  '(require 'ox-md nil t))
+;;(require 'rg)
+;;(rg-enable-default-bindings (kbd "M-s"))
 
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-bullets-bullet-list '("•")))
 
-  
+
 ;; ------
 ;; config
 ;; ------
-
 
 
 
@@ -59,10 +60,9 @@
 (load-theme 'atom-one-dark t)
 
 (add-to-list 'default-frame-alist
-	                            '(font . "Monaco 12"))
+	                            '(font . "Monaco 10"))
 
-
-
+;; gui options that dont matter for terminal usage
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t
       inhibit-startup-message t
