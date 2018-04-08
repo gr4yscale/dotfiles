@@ -41,3 +41,7 @@ alias yt-aud="youtube-dl -x --audio-format best --audio-quality 320k --audio-for
 
 alias fpvrider='~/bin/FPVFreerider_Recharged_Linux_2018-02-19/FPVFreerider_Recharged.x86_64'
 alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
+
+
+# mpv single audio channel while my stereo is ghetto
+alias mpv-yt='mpv --audio-channels=1'
