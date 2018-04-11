@@ -1,0 +1,328 @@
+# i3 config file (v4)
+
+### variables
+
+set $mod Mod4
+
+
+## colors/theme
+
+font pango:Monaco 11
+#font pango:FiraCode-Regular 12
+#font pango:DejaVu Sans Mono 12
+
+set $CL_BG #282C34
+set $CL_FG #ABB2BF
+set $CL_CUR #528BFF
+set $CL_BLACK #000000
+set $CL_RED #E06C75
+set $CL_GREEN #98C379
+set $CL_ORANGE #D19A66
+set $CL_BLUE #61AEEE
+set $CL_MAGENTA #C678DD
+set $CL_CYAN #56B6C2
+set $CL_LIGHTGRAY #ABB2BF
+set $CL_DARKGRAY #5C6370
+set $CL_WHITE #FFFFFF
+
+
+# class                 border      backgr.     text    indicator   child_border
+client.focused          $CL_CUR     $CL_CUR     $CL_BG   $CL_CUR     $CL_CUR
+client.focused_inactive $CL_MAGENTA $CL_MAGENTA $CL_BG   $CL_MAGENTA $CL_MAGENTA
+client.unfocused        $CL_BG      $CL_BG      $CL_CUR  $CL_BG      $CL_BG
+client.urgent           $CL_RED     $CL_RED     $CL_BG   $CL_RED     $CL_RED
+client.placeholder      $CL_BG      $CL_BG      $CL_WHITE $CL_BLACK  $CL_BG
+
+# borders
+new_window pixel 1
+new_float pixel 1
+
+
+floating_modifier $mod
+workspace_layout tabbed
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Shift+c reload 			# reload the configuration file
+bindsym $mod+Shift+r restart			# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+bindsym $mod+Return exec urxvt
+
+# rofi
+
+#bindsym $mod+d exec dmenu_run
+bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config
+
+
+# rofi invocation with run list command for bash aliases (slower)
+
+#bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+
+
+
+### focus
+
+focus_follows_mouse no
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+
+### scripts
+
+
+bindsym $mod+F9 exec ~/scripts/display_all.sh
+bindsym $mod+F10 exec ~/scripts/display_monitors.sh
+bindsym $mod+F11 exec ~/scripts/display_dining_room.sh
+
+bindsym $mod+slash exec ~/scripts/touchpad_toggle.sh
+
+### window movement
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+### container layout
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# container swapping can be put here
+
+
+
+
+##### workspaces
+
+#workspace_auto_back_and_forth yes
+
+set $ws1	"1:dev"
+set $ws2	"2:org"
+set $ws3	"3:browse"
+set $ws4	"4:comms"
+set $ws5	"5:files"
+set $ws6	"6:media"
+set $ws7	"7:study"
+set $ws8	"8:photo"
+set $ws9	"9:shell"
+set $ws10	"10:extra"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Tab            workspace next_on_output
+bindsym $mod+Shift+Tab      workspace prev_on_output
+
+
+# move workspace to display left/right
+bindsym $mod+bracketleft move workspace to output left
+bindsym $mod+bracketright move workspace to output right
+
+
+
+### scratchpad terminal
+
+bindsym $mod+Shift+equal scratchpad show
+#for_window [class="^URxvt$" instance="scratchpad_term"] border 1pixel; move scratchpad
+for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
+
+
+### bind modes
+
+# resize window
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+
+
+### bar config
+
+## hidden
+#bar {
+#    tray_output none
+#    mode invisible
+#}
+
+bar {
+        status_command i3status
+	tray_output primary
+	separator_symbol " | "
+	strip_workspace_numbers yes
+	#font pango:FiraCode-Regular 12
+	font pango:Monaco 11
+
+	colors 
+		{
+			background $CL_BG
+			statusline $CL_FG
+			separator $CL_FG
+
+			focused_workspace $CL_CUR $CL_CUR $CL_BG
+			inactive_workspace $CL_BG $CL_BG $CL_LIGHTGRAY
+			urgent_workspace  $CL_RED $CL_RED $CL_BG
+		}
+}
+
+
+
+### window assignments
+
+
+#exec_always --no-startup-id "i3-msg 'workspace 2: org; append_layout /home/gr4yscale/.config/i3/layout_dumps/2.json'"
+
+#dev
+assign [title="*Arduino*"] $ws1
+#assign [class="github"] $ws1
+
+#org
+assign [instance="calendar.google.com"] $ws2
+assign [class="Emacs"] $ws2
+assign [class="nixnote2"] $ws2
+assign [title="Simplenote - Chromium"] $ws2
+
+
+#browsing
+assign [window_role="browser"] $ws3
+
+#comms
+assign [instance="web.whatsapp.com"] $ws4
+assign [instance="www.messenger.com"] $ws4
+assign [instance="mail.google.com__mail_u_0"] $ws4
+assign [instance="otherworldly.slack.com__messages_D72R0KDFX"] $ws4
+
+
+#files
+assign [window_role="file_manager"] $ws5
+
+
+### media....
+assign [class="Vocal"] $ws6
+assign [class="Gpodder"] $ws6
+#assign [class="mpv"] $ws6
+for_window [class="mpv"] floating enable sticky enable border normal
+
+### photo
+assign [class="Rawtherapee"] $ws8
+
+### floating windows
+for_window [class="Lxappearence"] floating enable sticky enable border normal
+
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
+
+
+# Caps lock as control
+exec_always setxkbmap -option ctrl:nocaps
+
+#polybar
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+### continue autostarting applications
+exec ~/.config/i3/autostart
+

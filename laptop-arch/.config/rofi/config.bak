@@ -1,0 +1,188 @@
+! Enabled modi
+rofi.modi:                           combi
+! Set the modi to combine in combi mode
+rofi.combi-modi:                     window,drun
+! Window opacity
+rofi.opacity:                        100
+! Window width
+rofi.width:                          50
+! Number of lines
+rofi.lines:                          10
+! Number of columns
+rofi.columns:                        1
+! Font to use
+rofi.font:                           mono 12
+! Foreground color
+rofi.fg:                             #002B36
+! Background color
+rofi.bg:                             #FDF7E3
+! Foreground color for active row
+rofi.fg-active:                      #269BD2
+! Foreground color for urgent row
+rofi.fg-urgent:                      #DC322F
+! Foreground color for highlighted active row
+rofi.hlfg-active:                    #FDF6E3
+! Foreground color for highlighted urgent row
+rofi.hlfg-urgent:                    #FDF6E3
+! Background color for active row
+rofi.bg-active:                      #FDF6E3
+! Background color for urgent row
+rofi.bg-urgent:                      #FDF6E3
+! Background color for highlighted active row
+rofi.hlbg-active:                    #268BD2
+! Background color for highlighted urgent row
+rofi.hlbg-urgent:                    #DC322F
+! Background color for alternating row
+rofi.bgalt:                          #FDF6E3
+! Foreground color for highlighted row
+rofi.hlfg:                           #EEE8D5
+! Background color for highlighted row
+rofi.hlbg:                           #586E75
+! Border color
+rofi.bc:                             #002B36
+
+! Use extended color scheme
+rofi.color-enabled:                  true
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! Copyright: Dave Davenport
+! ------------------------------------------------------------------------------
+! "Color scheme for normal row" Set from: File
+rofi.color-normal:                   argb:0f5f5f5, #002b36, #d0d0d0, #4271ae, #f5f5f5
+! "Color scheme for urgent row" Set from: File
+rofi.color-urgent:                   #f5f5f5, #d75f00, #d0d0d0, #d75f00, #f5f5f5
+! "Color scheme for active row" Set from: File
+rofi.color-active:                   #f5f5f5, #005f87, #d0d0d0, #005f87, #f5f5f5
+! "Color scheme window" Set from: File
+rofi.color-window:                   #f5f5f5, #444444, #444444
+! "Separator style (none, dash, solid)" Set from: File
+rofi.separator-style:                solid
+rofi.hide-scrollbar:                 true
+
+! Margin between rows
+rofi.line-margin:                    0
+! Border width
+rofi.bw:                             1
+! Location on screen
+rofi.location:                       0
+! Padding
+rofi.padding:                        5
+! Y-offset relative to location
+rofi.yoffset:                        0
+! X-offset relative to location
+rofi.xoffset:                        0
+! Always show number of lines
+rofi.fixed-num-lines:                false
+! Terminal to use
+rofi.terminal:                       rofi-sensible-terminal
+! Ssh client to use
+rofi.ssh-client:                     ssh
+! Ssh command to execute
+rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+! Run command to execute
+rofi.run-command:                    {cmd}
+! Command to get extra run targets
+rofi.run-list-command:
+! Run command to execute that runs in shell
+rofi.run-shell-command:              {terminal} -e {cmd}
+! Disable history in run/ssh
+rofi.disable-history:                false
+! Use levenshtein sorting
+rofi.levenshtein-sort:               false
+! Set case-sensitivity
+rofi.case-sensitive:                 false
+! Enable sidebar-mode
+rofi.sidebar-mode:                   false
+! Set lazy filter limit
+rofi.lazy-filter-limit:              15000
+! Row height (in chars)
+rofi.eh:                             1
+! Enable auto select mode
+rofi.auto-select:                    false
+! Parse hosts file for ssh mode
+rofi.parse-hosts:                    false
+! Parse known_hosts file for ssh mode
+rofi.parse-known-hosts:              true
+! Do a more fuzzy matching
+rofi.fuzzy:                          false
+! Use glob matching
+rofi.glob:                           false
+! Tokenize input string
+rofi.tokenize:                       true
+! Monitor id to show on
+rofi.m:                              -5
+! Pre-set filter
+rofi.filter:
+! Show markup
+rofi.markup-rows:                    false
+! Fullscreen
+rofi.fullscreen:                     false
+! Fake transparency
+rofi.fake-transparency:              false
+! DPI
+rofi.dpi:                            -1
+! Pidfile location
+rofi.pid:                            /run/user/1000/rofi.pid
+! Keybinding
+rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
+! Keybinding
+rofi.kb-secondary-paste:             Control+v,Insert
+! Keybinding
+rofi.kb-clear-line:                  Control+u
+! Keybinding
+rofi.kb-move-front:                  Control+a
+! Keybinding
+rofi.kb-move-end:                    Control+e
+! Keybinding
+rofi.kb-move-word-back:              Alt+b
+! Keybinding
+rofi.kb-move-word-forward:           Alt+f
+! Keybinding
+rofi.kb-move-char-back:              Left,Control+b
+! Keybinding
+rofi.kb-move-char-forward:           Right,Control+f
+! Keybinding
+rofi.kb-remove-word-back:            Control+Alt+h
+! Keybinding
+rofi.kb-remove-word-forward:         Control+Alt+d
+! Keybinding
+rofi.kb-remove-char-forward:         Delete,Control+d
+! Keybinding
+rofi.kb-remove-char-back:            BackSpace,Control+h
+! Keybinding
+rofi.kb-accept-entry:                Return,KP_Enter
+! Keybinding
+rofi.kb-accept-custom:               Control+Return
+! Keybinding
+rofi.kb-accept-entry-continue:       Shift+Return
+! Keybinding
+rofi.kb-mode-next:                   Shift+Right,Control+Tab
+! Keybinding
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
+! Keybinding
+rofi.kb-toggle-case-sensitivity:     grave,dead_grave
+! Keybinding
+rofi.kb-delete-entry:                Shift+Delete
+! Keybinding
+rofi.kb-row-left:                    Control+Page_Up
+! Keybinding
+rofi.kb-row-right:                   Control+Page_Down
+! Keybinding
+rofi.kb-row-up:                      Up,Control+k
+! Keybinding
+rofi.kb-row-down:                    Down,Control+j
+! Keybinding
+rofi.kb-row-tab:                     Tab
+! Keybinding
+rofi.kb-page-prev:                   Shift+Tab
+! Keybinding
+rofi.kb-page-next:                   Page_Down
+! Keybinding
+rofi.kb-row-first:                   Home,KP_Home
+! Keybinding
+rofi.kb-row-last:                    End,KP_End
+! Keybinding
+rofi.kb-row-select:
+! Keybinding
+rofi.kb-cancel:                      Escape
