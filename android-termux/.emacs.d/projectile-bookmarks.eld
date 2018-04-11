@@ -1,0 +1,1 @@
+("~/org/" "~/code/succcculent/" "~/txt-notes/" "~/code/orca/" "~/worg/")
