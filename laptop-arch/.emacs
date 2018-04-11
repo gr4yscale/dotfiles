@@ -141,6 +141,8 @@
 
 ;; org
 
+(setq org-cycle-separator-lines 1)
+
 ;; org paths
 
 (setq org-directory "~/org/")
