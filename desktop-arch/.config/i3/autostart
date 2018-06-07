@@ -6,7 +6,10 @@
 xsetroot -solid '#101010' &
 
 ## keyboard repeat rate
-xset r rate 200 40
+xset r on
+xset r rate 400 50
+
+
 
 #dropbox
 #/home/gr4yscale/.dropbox-dist/dropboxd &

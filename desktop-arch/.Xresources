@@ -3,7 +3,8 @@
 ! font rendering
 ! ################################
 
-Xft.dpi: 95.78
+Xft.dpi: 96
+!Xft.dpi: 95.78
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
