@@ -274,7 +274,10 @@ assign [instance="otherworldly.slack.com__messages_D72R0KDFX"] $ws4
 
 #files
 assign [window_role="file_manager"] $ws5
-
+assign [class="Thunar"] $ws5
+assign [instance="ranger"] $ws5
+assign [class="Nicotine"] $ws5
+assign [class="Deluge"] $ws5
 
 ### media....
 assign [class="Vocal"] $ws6
@@ -284,6 +287,7 @@ for_window [class="mpv"] floating enable sticky enable border normal
 
 ### photo
 assign [class="Rawtherapee"] $ws8
+assign [class="geeqie"] $ws8
 
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal
