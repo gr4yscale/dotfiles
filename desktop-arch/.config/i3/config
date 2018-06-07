@@ -284,6 +284,9 @@ assign [class="Vocal"] $ws6
 assign [class="Gpodder"] $ws6
 #assign [class="mpv"] $ws6
 for_window [class="mpv"] floating enable sticky enable border normal
+#zenity dialogs
+for_window [class="zenity"] floating enable sticky enable border normal
+
 
 ### photo
 assign [class="Rawtherapee"] $ws8
