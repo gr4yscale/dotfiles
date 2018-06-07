@@ -14,6 +14,11 @@ xset r rate 400 50
 synergys --daemon -c ~/.synergy.conf &
 
 
+# vnc server
+#x11vnc -display :0 -geometry=1920x1080 -forever -loop -o /home/gr4yscale/.vnc/x11vnc.log
+
+
+#x0vncserver -display :0 -rfbport 5900 -passwordfile ~/.vnc/passwd -Log *:stderr:100 > ~/.vnc/x0vncserver.log &
 
 #dropbox
 #/home/gr4yscale/.dropbox-dist/dropboxd &
