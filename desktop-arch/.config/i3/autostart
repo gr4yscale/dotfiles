@@ -30,8 +30,6 @@ synergys --daemon -c ~/.synergy.conf &
 emacs &
 gcal &
 simplenote &
-nixnote2 &
-
 
 # browsing
 #chromium --class=browsing --new-window https://getpocket.com/a/queue/list/ https://feedly.com https://www.reddit.com/ https://tweetdeck.twitter.com/
@@ -44,9 +42,16 @@ whatsapp &
 
 # files
 spacefm &
-#urxvt -name files -e bash -c "ranger"
+thunar &
+nicotine &
+deluge &
+urxvt -name files -e bash -c "ranger" &
 
 
-# audio
+# media
 gpodder &
+deadbeef &
+# mopidy chromium app
 
+# photo
+geeqie &
