@@ -182,9 +182,6 @@ bindsym $mod+bracketright move workspace to output right
 ### scratchpad terminal
 
 bindsym $mod+Shift+equal scratchpad show
-#for_window [class="^URxvt$" instance="scratchpad_term"] border 1pixel; move scratchpad
-for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
-exec urxvt -name scratchpad_term -e bash
 
 
 
@@ -291,6 +288,11 @@ assign [class="Rawtherapee"] $ws8
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal
 
+
+### scratch
+
+for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
+for_window [instance="scratchpad_file"] border 1pixel; move scratchpad
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
