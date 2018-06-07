@@ -10,6 +10,10 @@ xset r on
 xset r rate 400 50
 
 
+#synergy 
+synergys --daemon -c ~/.synergy.conf &
+
+
 
 #dropbox
 #/home/gr4yscale/.dropbox-dist/dropboxd &
