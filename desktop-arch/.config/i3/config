@@ -86,9 +86,9 @@ bindsym $mod+a focus parent
 ### display config scripts
 
 
-bindsym $mod+F9 exec ~/scripts/display_all.sh
-bindsym $mod+F10 exec ~/scripts/display_monitors.sh
-bindsym $mod+F11 exec ~/scripts/display_dining_room.sh
+bindsym $mod+F9 exec ~/scripts/new_display_all.sh
+bindsym $mod+F10 exec ~/scripts/new_display_desk_dual.sh
+bindsym $mod+F11 exec ~/scripts/new_display_dual_dining_room.sh
 
 ### window movement
 
