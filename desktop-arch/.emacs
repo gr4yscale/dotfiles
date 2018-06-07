@@ -179,14 +179,18 @@
 SCHEDULED: %t")))
 
 
-;; org fxns
+
+;; agenda customization
+(setq org-agenda-skip-scheduled-if-done t)
+
+
 ;; TOFIX: next one not in use
-(defun pop-to-org-agenda (split)
-  "Visit the org agenda, in the current window or a SPLIT."
-  (interactive "P")
-  (org-agenda-list)
-  (when (not split)
-    (delete-other-windows)))
+;;(defun pop-to-org-agenda (split)
+;;  "Visit the org agenda, in the current window or a SPLIT."
+;;  (interactive "P")
+;;  (org-agenda-list)
+;;  (when (not split)
+;;    (delete-other-windows)))
 
 
 (defun org-task-capture ()
