@@ -318,13 +318,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 
 
-
 # Caps lock as control
 exec_always setxkbmap -option ctrl:nocaps
 
+###  autostart
+exec urxvt -name scratchpad_term -e bash
+exec thunar -name scratchpad_file
+exec ~/.config/i3/autostart
+
 #polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-### continue autostarting applications
-exec ~/.config/i3/autostart
 
