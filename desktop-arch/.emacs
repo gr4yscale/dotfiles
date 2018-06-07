@@ -192,6 +192,18 @@ SCHEDULED: %t")))
 ;;  (when (not split)
 ;;    (delete-other-windows)))
 
+(setq org-agenda-prefix-format '(
+  ;; (agenda  . " %i %-12:c%?-12t% s") ;; file name + org-agenda-entry-type
+  ;; (agenda  . "  • ")
+  (agenda  . "  ")
+  (timeline  . "  % s")
+  (todo  . " %i %-12:c")
+  (tags  . " %i %-12:c")
+  (search . " %i %-12:c")))
+
+
+
+
 
 (defun org-task-capture ()
   "Capture a task with my default template."
