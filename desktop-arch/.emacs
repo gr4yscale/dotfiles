@@ -298,7 +298,6 @@ SCHEDULED: %t")))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/org/index.org")))
  '(package-selected-packages
    (quote
     (helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
