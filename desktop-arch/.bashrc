@@ -48,3 +48,6 @@ alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
 
 # mpv single audio channel while my stereo is ghetto
 alias mpv-yt='mpv --audio-channels=1'
+
+# VM RDP access
+alias windoze='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
