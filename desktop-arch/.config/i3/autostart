@@ -45,7 +45,7 @@ spacefm &
 thunar &
 nicotine &
 deluge &
-urxvt -name files -e bash -c "ranger" &
+urxvt -name ranger -e bash -c "ranger" &
 
 
 # media
