@@ -23,7 +23,7 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 
 # Set up fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
 # Set up Node Version Manager (slows down launching a terminal, i just source this manually)
