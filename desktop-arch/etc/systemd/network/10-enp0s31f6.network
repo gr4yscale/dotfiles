@@ -1,0 +1,10 @@
+[Match]
+Name=enp0s31f6
+
+[Network]
+Address=192.168.0.11/24
+DNS=8.8.8.8
+
+[Route]
+Gateway=192.168.0.1
+Metric=10

@@ -1,0 +1,9 @@
+[Match]
+MACAddress=b0:6e:bf:a6:a5:a9
+
+[Network]
+Address=10.1.1.2/24
+
+[Route]
+Destination=10.1.1.1
+Metric=20
