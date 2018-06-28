@@ -9,6 +9,9 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 
+#fix emacs colors in tmux
+export TERM=xterm-256color
+
 ###### unlimited history
 export HISTFILESIZE=
 export HISTSIZE=
