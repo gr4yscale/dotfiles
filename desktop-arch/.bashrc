@@ -35,9 +35,7 @@ alias gmail='chromium  --app=https://mail.google.com/mail/u/0/#starred'
 alias gcal='chromium --app="https://calendar.google.com" --new-window &'
 alias simplenote='chromium --app="https://app.simplenote.com" --new-window &'
 alias messenger='chromium  --app=https://www.messenger.com'
-alias slack='chromium --app=https://otherworldly.slack.com/messages/D72R0KDFX/'
 alias whatsapp='chromium --app=https://web.whatsapp.com'
-alias zeplin='chromium --app=https://app.zeplin.io/project/58deb96cf03250bdbe60a4ca'
 alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
 
 
@@ -49,8 +47,6 @@ alias fpvrider='~/bin/FPVFreerider_Recharged_Linux_2018-02-19/FPVFreerider_Recha
 alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
 
 
-# mpv single audio channel while my stereo is ghetto
-alias mpv-yt='mpv --audio-channels=1'
 
 # VM RDP access
 alias windoze='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
