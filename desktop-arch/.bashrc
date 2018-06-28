@@ -17,6 +17,9 @@ export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
 
+# make libvirt connection for console virsh commad play with virual manager GUI
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
 
 
 # Set up fzf
