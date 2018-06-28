@@ -1,0 +1,23 @@
+# 
+
+#node
+deb https://deb.nodesource.com/node_8.x buster main
+deb-src https://deb.nodesource.com/node_8.x buster main
+
+#testing
+deb http://ftp.se.debian.org/debian/ testing main contrib non-free
+deb-src http://ftp.se.debian.org/debian/ testing main contrib non-free
+
+deb http://security.debian.org/debian-security testing/updates main contrib non-free
+deb-src http://security.debian.org/debian-security testing/updates main contrib non-free
+
+#stable
+deb http://ftp.se.debian.org/debian/ stretch main
+
+#unstable
+deb http://ftp.se.debian.org/debian/ unstable main
+deb-src http://ftp.se.debian.org/debian/ unstable main
+
+# stretch-updates, previously known as 'volatile'
+#deb http://ftp.se.debian.org/debian/ stretch-updates main
+#deb-src http://ftp.se.debian.org/debian/ stretch-updates main

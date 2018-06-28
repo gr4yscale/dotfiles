@@ -1,0 +1,27 @@
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+
+# raid0 disk array (3x4TB)
+/dev/mapper/vg0-lv0	/media/storage	ext4	defaults	0	2
+
+#Entry for /dev/sda2 :
+UUID=0473f0da-dd5f-45e7-b06b-3b72e52f4739	/	ext4	errors=remount-ro	0	1
+#Entry for /dev/sda1 :
+UUID=0E84-6E69	/boot/efi	vfat	umask=0077	0	1
+#Entry for /dev/sda4 :
+UUID=1a094629-4f32-4521-9608-ec327793e0a5	/home	ext4	defaults	0	2
+#Entry for /dev/sda3 :
+UUID=8e4d5c07-19cb-42ba-8495-b26a6eab05fe	none	swap	sw	0	0
+
+
+#UUID=2A76EF4D76EF1879	/media/sdb	auto	defaults	0	2
+#UUID=54203DAF203D9946	/media/sdc	auto	defaults	0	2
+#UUID=c4bcfb20-b1e6-3840-878e-96d6a5b1ae3c	/media/sdd	auto	defaults	0	2
+#UUID=6536abc0-f4b2-35ce-9409-6cf0c6324d14	/media/sdf	auto	defaults	0	2
+#UUID=26ca9c5f-f3aa-30f4-ab79-9ab971587af7	/media/sdg	auto	defaults	0	2
+#UUID=780CB97E0CB937C8	/media/sdi	auto	defaults	0	2
+
+
+//192.168.0.11/home	/media/archbeast-home	cifs	noauto,guest,uid=gr4yscale,gid=gr4yscale	0	0
