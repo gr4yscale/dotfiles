@@ -28,7 +28,8 @@
   (require 'use-package))
 
 
-
+;; ensure tab key works in org when in normal mode using evil
+(setq evil-want-C-i-jump nil)
 
 
 ;; Extras
@@ -101,6 +102,9 @@
 ;; easier window switching
 (global-set-key (kbd "C-x o") 'switch-window)
 
+;; fix TAB key interference between org and evil-mode
+;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
 
 
 
