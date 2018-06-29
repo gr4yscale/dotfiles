@@ -7,7 +7,7 @@ set $mod Mod4
 
 ## colors/theme
 
-font pango:Monaco 11
+font pango:Monaco 12
 #font pango:FiraCode-Regular 12
 #font pango:DejaVu Sans Mono 12
 
@@ -55,7 +55,7 @@ bindsym $mod+Return exec urxvt
 # rofi
 
 #bindsym $mod+d exec dmenu_run
-bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config
+bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
 
 
 # rofi invocation with run list command for bash aliases (slower)
@@ -89,15 +89,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
-### scripts
-
-
-bindsym $mod+F9 exec ~/scripts/display_all.sh
-bindsym $mod+F10 exec ~/scripts/display_monitors.sh
-bindsym $mod+F11 exec ~/scripts/display_dining_room.sh
-
-bindsym $mod+slash exec ~/scripts/touchpad_toggle.sh
 
 ### window movement
 
@@ -191,8 +182,6 @@ bindsym $mod+bracketright move workspace to output right
 ### scratchpad terminal
 
 bindsym $mod+Shift+equal scratchpad show
-#for_window [class="^URxvt$" instance="scratchpad_term"] border 1pixel; move scratchpad
-for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
 
 
 ### bind modes
@@ -235,12 +224,12 @@ bindsym $mod+r mode "resize"
 #}
 
 bar {
-        status_command i3status
+        status_command i3blocks
 	tray_output primary
 	separator_symbol " | "
 	strip_workspace_numbers yes
 	#font pango:FiraCode-Regular 12
-	font pango:Monaco 11
+	font pango:Monaco 12
 
 	colors 
 		{
@@ -279,12 +268,14 @@ assign [window_role="browser"] $ws3
 assign [instance="web.whatsapp.com"] $ws4
 assign [instance="www.messenger.com"] $ws4
 assign [instance="mail.google.com__mail_u_0"] $ws4
-assign [instance="otherworldly.slack.com__messages_D72R0KDFX"] $ws4
 
 
 #files
 assign [window_role="file_manager"] $ws5
-
+assign [class="Thunar"] $ws5
+assign [instance="files"] $ws5
+assign [class="Nicotine"] $ws5
+assign [class="Deluge"] $ws5
 
 ### media....
 assign [class="Vocal"] $ws6
@@ -296,15 +287,19 @@ for_window [class="mpv"] floating enable sticky enable border normal
 ### photo
 assign [class="Rawtherapee"] $ws8
 assign [class="geeqie"] $ws8
-
-
-#zenity dialogs
-for_window [class="zenity"] floating enable sticky enable border normal
-
+assign [window_role="geeqie"] $ws8
+assign [instance="geeqie"] $ws8
 
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal
 
+#zenity dialogs
+for_window [class="zenity"] floating enable sticky enable border normal
+
+### scratch
+
+for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
+for_window [instance="scratchpad_file"] border 1pixel; move scratchpad
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -318,18 +313,18 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 
 # Caps lock as control
 exec_always setxkbmap -option ctrl:nocaps
 
+###  autostart
+exec urxvt -name scratchpad_term -e bash
+#exec thunar -name scratchpad_file
+exec ~/.config/i3/autostart
+
 #polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-### continue autostarting applications
-exec ~/.config/i3/autostart
 
