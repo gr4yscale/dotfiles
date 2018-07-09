@@ -225,7 +225,8 @@ bindsym $mod+r mode "resize"
 #}
 
 bar {
-        status_command ~/scripts/i3status.sh
+        status_command i3blocks -c ~/.config/i3/.i3blocks.conf
+        #status_command ~/scripts/i3status.sh
 	tray_output primary
 	separator_symbol " | "
 	strip_workspace_numbers yes
