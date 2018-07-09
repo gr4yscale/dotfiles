@@ -10,7 +10,7 @@ xset r on
 xset r rate 400 50
 
 ## add serbian latin , russian cyrillic keyboard layouts
-setxkbmap -model pc105 -layout us,rs,ru -variant ,latin,srp -option grp:ctrls_toggle
+setxkbmap -model pc105 -layout us,rs,ru -variant ,latinyz,srp -option grp:ctrls_toggle
 
 #synergy 
 synergys --daemon -c ~/.synergy.conf &
