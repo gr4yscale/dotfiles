@@ -50,6 +50,7 @@ alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
 #youtube-dl (vid)
 alias yt-vid="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -w -i"
 alias yt-aud="youtube-dl -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -w -i -o '%(title)s.%(ext)s'"
+alias yt-music="cd ~/storage/audio/music/organize; youtube-dl -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -w -i -o '%(title)s.%(ext)s'"
 
 
 # handy shortcuts
@@ -62,15 +63,10 @@ alias lock='i3lock -c 101010 -u'
 #alias hot_disconnect='sudo netctl stop hotspot; sudo ip link set wlan0 down'
 
 # VM RDP access
-alias windoze='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
+alias windoze-floating='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
+alias windoze-full="i3-msg 'workspace 10:extra'; rdesktop -g 1920x1050 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15; i3-msg 'floating disable'"
 
-# serbian to english google translate
-alias trans='trans sr-Latn:en'
-
-
-
-#alias web-scrape=wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains wikitravel.org --no-parent https://wikitravel.org/e
-
+alias scrape='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent '
 
 alias englishtoserbian='trans en:sr-Latn'
 alias serbiantoenglish='trans sr-Latn:en'

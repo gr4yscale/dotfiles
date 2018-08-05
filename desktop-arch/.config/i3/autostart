@@ -15,6 +15,11 @@ setxkbmap -model pc105 -layout us,rs,ru -variant ,latinyz,srp -option grp:ctrls_
 #synergy 
 synergys --daemon -c ~/.config/.synergy.win.conf &
 
+#keyboard daemon to announce layout change on d-bus, for i3blocks
+kbdd &
+
+
+
 
 # vnc server
 #x11vnc -display :0 -geometry=1920x1080 -forever -loop -o /home/gr4yscale/.vnc/x11vnc.log

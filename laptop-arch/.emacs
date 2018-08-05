@@ -20,17 +20,20 @@
 (package-initialize)
 
 
+
 ;; Install 'use-package' if necessary
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 
 ;; Enable use-package
 (eval-when-compile
   (require 'use-package))
 
 
-
+;; ensure tab key works in org when in normal mode using evil
+(setq evil-want-C-i-jump nil)
 
 
 ;; Extras
@@ -141,6 +144,9 @@
 ;; easier window switching
 (global-set-key (kbd "C-x o") 'switch-window)
 
+;; fix TAB key interference between org and evil-mode
+;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
 
 
 
@@ -176,6 +182,7 @@
   (which-key-mode 1))
 
 
+;; projectile + helm
 
 ;; Helm
 (use-package helm
@@ -228,7 +235,7 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '("~/org/study.org" "~/org/chores-life.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org" "~/org/projects.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
@@ -276,7 +283,7 @@ SCHEDULED: %t")))
 
 (setq org-agenda-prefix-format '(
   ;; (agenda  . " %i %-12:c%?-12t% s") ;; file name + org-agenda-entry-type
-;  ;; (agenda  . "  • ")
+  ;; (agenda  . "  • ")
   (agenda  . "  ")
   (timeline  . "  % s")
   (todo  . " %i %-12:c")
@@ -315,6 +322,7 @@ SCHEDULED: %t")))
 
 ;; hide stars
 (setq org-hide-leading-stars t)
+
 
 
 
@@ -415,6 +423,7 @@ SCHEDULED: %t")))
 ;;(define-key evil-ex-map "e" 'helm-find-files)                    ;; :e
 
 
+;; Custom
 
 ;; helm-grep-do-git-grep
 

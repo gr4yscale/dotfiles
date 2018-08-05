@@ -2,8 +2,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+
 Plug 'mileszs/ack.vim'
 
 Plug 'tpope/vim-fugitive'
@@ -34,12 +35,14 @@ let g:lightline = {'colorscheme': 'onedark'}
 
 "statusline replaces the need for this
 set noshowmode
-:set cursorline
+set cursorline
+set relativenumber
+set number
 
 
 " FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
+" set rtp+=/usr/local/opt/fzf
+" set rtp+=~/.fzf
 
 "TODO: check if i need ack.vim?
 
@@ -48,7 +51,7 @@ let g:ackprg = 'rg --vimgrep'
 set grepprg=rg\ --vimgrep
 
 " see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " fugitive
 autocmd QuickFixCmdPost *grep* cwindow

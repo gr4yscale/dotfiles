@@ -7,7 +7,7 @@ xsetroot -solid '#101010' &
 
 ## keyboard repeat rate
 xset r on
-xset r rate 400 50
+xset r rate 400 60
 
 ## add serbian latin , russian cyrillic keyboard layouts
 setxkbmap -model pc105 -layout us,rs,ru -variant ,latinyz,srp -option grp:ctrls_toggle
@@ -36,6 +36,8 @@ kbdd &
 
 # vnc server
 #x11vnc -display :0 -geometry=1920x1080 -forever -loop -o /home/gr4yscale/.vnc/x11vnc.log
+
+
 #x0vncserver -display :0 -rfbport 5900 -passwordfile ~/.vnc/passwd -Log *:stderr:100 > ~/.vnc/x0vncserver.log &
 
 #dropbox

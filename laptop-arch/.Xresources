@@ -1,4 +1,13 @@
+
+! ################################
+! font rendering
+! ################################
+
+Xft.dpi: 96
+! Xft.dpi: 95.78
 ! Xft.dpi: 192
+
+
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -53,34 +62,42 @@ Xft.rgba: rgb
 ! urxvt
 ! ################################
 
-!URxvt.intensityStyles:	false
-!URxvt.background:       [70]#000000
 URxvt.depth:		24
-!URxvt.font: 		xft:monospace:size=11
-URxvt.font: xft:monaco:size=12
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
 
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
+!urxvt.perl-lib:                     /home/gr4yscale/bin/urxvt-font
+!urxvt.keysym.Control-Shift-Up:      perl:font:increment
+!urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+!urxvt.perl-ext-common:              font
+
+urxvt*boldColors: on
+urxvt*font:     xft:FiraCode:pixelsize=14:antialias=true:hinting=true:regular
+urxvt*boldFont: xft:FiraCode:pixelsize=14:antialias=true:hinting=true:bold
+
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
-!URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
 URxvt.colorUL:		#4682B4
+
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
 URxvt.url-select.launcher: linkhandler
 URxvt.url-select.underline: true
 
-
+!! clipboard
 !URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.M-c: perl:keyboard-select:activate
 
-
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-r: perl:keyboard-select:search
-
 URxvt.keyboard-select.clipboard: true
 URxvt.clipboard.autocopy: true
 
@@ -90,9 +107,6 @@ URxvt.resize-font.bigger:	C-equals
 !! Matcher
 URxvt.url-launcher:	linkhandler
 URxvt.matcher.button:	1
-
-URxvt*boldColors: on
-
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false

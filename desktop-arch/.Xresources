@@ -4,7 +4,9 @@
 ! ################################
 
 Xft.dpi: 96
-!Xft.dpi: 95.78
+! Xft.dpi: 95.78
+! Xft.dpi: 192
+
 
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
@@ -60,6 +62,15 @@ Xft.rgba: rgb
 ! urxvt
 ! ################################
 
+URxvt.depth:		24
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
 urxvt.perl-lib:                     /home/gr4yscale/bin/urxvt-font
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
@@ -69,10 +80,33 @@ urxvt*boldColors: on
 urxvt*font:     xft:FiraCode:pixelsize=14:antialias=true:hinting=true:regular
 urxvt*boldFont: xft:FiraCode:pixelsize=14:antialias=true:hinting=true:bold
 
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.scrollBar_floating: false
-URxvt.scrollstyle: rxvt
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:		#4682B4
+
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+
+!! clipboard
+!URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-c: perl:keyboard-select:activate
+
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-r: perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: true
+URxvt.clipboard.autocopy: true
+
+!! resize-font
+URxvt.resize-font.smaller:	C-minus
+URxvt.resize-font.bigger:	C-equals
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button:	1
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -80,3 +114,30 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
+
+
+!URxvt.scrollBar: false
+!URxvt.scrollBar_right: false
+!URxvt.scrollBar_floating: false
+!URxvt.scrollstyle: rxvt
+
+!URxvt.font: xft:monospace:size=12
+!URxvt*font:     xft:FiraCode:pixelsize=20:antialias=true:hinting=true:regular
+!URxvt*boldFont: xft:FiraCode:pixelsize=20:antialias=true:hinting=true:bold
+
+
+! old font-size config
+
+! font size plugin config
+! (installed in ~/.urxvt/ext/font-size
+
+!URxvt.font-size.step: 4
+!URxvt.keysym.C-Up:     font-size:increase
+!URxvt.keysym.C-Down:   font-size:decrease
+!URxvt.keysym.C-S-Up:   font-size:incglobal
+!URxvt.keysym.C-S-Down: font-size:decglobal
+!URxvt.keysym.C-equal:  font-size:reset
+!URxvt.keysym.C-slash:  font-size:show
+
+
+

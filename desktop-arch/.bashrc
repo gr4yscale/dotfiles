@@ -25,7 +25,8 @@ export HISTTIMEFORMAT="[%F %T] "
 # make libvirt connection for console virsh commad play with virual manager GUI
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
-
+# dont let ranger load the default config
+RANGER_LOAD_DEFAULT_RC=false
 
 # Set up fzf
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -61,3 +62,6 @@ alias windoze-full="i3-msg 'workspace 10:extra'; rdesktop -g 1920x1050 -P -z -x 
 
 
 alias scrape='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent '
+
+alias englishtoserbian='trans en:sr-Latn'
+alias serbiantoenglish='trans sr-Latn:en'
