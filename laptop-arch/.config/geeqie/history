@@ -1,0 +1,38 @@
+#History lists
+
+[shortcuts]
+".[path](null)"
+"Home[path]/home/gr4yscale"
+"[photos-to-sort][path]/home/gr4yscale/[photos-to-sort]"
+
+[path_list]
+"/home/gr4yscale/[photos-to-sort]/2018-05-xx new D7000, croatia w mom/2018"
+"/home/gr4yscale/[photos-to-sort]/istanbul/100GOPRO"
+"/home/gr4yscale/[photos-to-sort]"
+"/home/gr4yscale/[photos-to-sort]/photos_ARCHBEAST/[[ANALOG]]"
+"/home/gr4yscale/[photos-to-sort]/photos_ARCHBEAST/[[ANALOG]]/analog photos 1"
+"/home/gr4yscale/[photos-to-sort]/photos_ARCHBEAST/[[ANALOG]]/analog photos 1/00001401"
+"/home/gr4yscale/[to-post]"
+"/home/gr4yscale/[photos-to-sort]/iphone-2017-12-xx - 2018-xx-xx"
+"/home/gr4yscale/[photos-to-sort]/istanbul"
+"/home/gr4yscale"
+
+[bookmarks]
+".[path]/home/gr4yscale/[photos-to-sort]/iphone-2017-12-xx - 2018-xx-xx"
+"Home[path]/home/gr4yscale"
+"Desktop[path]/home/gr4yscale/Desktop"
+"Collections[path]/home/gr4yscale/.local/share/geeqie/collections"
+
+[sort_manager]
+".[path]/home/gr4yscale/[photos-to-sort]/photos_ARCHBEAST/[[ANALOG]]/analog photos 1/00001402"
+"Home[path]/home/gr4yscale"
+"Desktop[path]/home/gr4yscale/Desktop"
+"Collections[path]/home/gr4yscale/.local/share/geeqie/collections"
+"to-post[path]/home/gr4yscale/[to-post]"
+
+[pan_view_options]
+"use_exif_date[INT]:0"
+"info_image_size[INT]:1"
+"info_includes_exif[INT]:1"
+
+#end

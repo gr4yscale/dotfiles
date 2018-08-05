@@ -20,7 +20,7 @@ rofi.color-normal: #282C34, #ABB2BF, #282C34, #528BFF, #FFFFFF
 rofi.color-active: #282C34, #ABB2BF, #528BFF, #528BFF, #FFFFFF
 rofi.color-urgent: #282C34, #ABB2BF, #282C34, #528BFF, #FFFFFF
 
-rofi.font:                           Monaco 11
+rofi.font:                           Monaco 24
 
 ! "Padding within rows *DEPRECATED*" Set from: Default
 rofi.line-padding:                   4

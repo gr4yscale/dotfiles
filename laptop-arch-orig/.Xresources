@@ -1,0 +1,88 @@
+Xft.dpi: 192
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+! #######################################
+! colors
+! #######################################
+
+! special
+*.foreground:   #ABB2BF
+*.background:   #282C34
+*.cursorColor:  #ABB2BF
+
+! black
+*.color0:       #282C34
+*.color8:       #3E4452
+
+! red
+*.color1:       #E06C75
+*.color9:       #BE5046
+
+! green
+*.color2:       #98C379
+*.color10:      #98C379
+
+! yellow
+*.color3:       #E5C07B
+*.color11:      #D19A66
+
+! blue
+*.color4:       #61AFEF
+*.color12:      #61AFEF
+
+! magenta
+*.color5:       #C678DD
+*.color13:      #C678DD
+
+! cyan
+*.color6:       #56B6C2
+*.color14:      #56B6C2
+
+! white
+*.color7:       #ABB2BF
+*.color15:      #5C6370
+
+
+! ################################
+! urxvt
+! ################################
+
+! font size plugin config
+! (installed in ~/.urxvt/ext/font-size
+
+URxvt.perl-ext-common: font-size
+URxvt.font-size.step: 4
+
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+
+urxvt*boldColors: on
+urxvt*font:     xft:FiraCode:pixelsize=34:antialias=true:hinting=true:regular
+urxvt*boldFont: xft:FiraCode:pixelsize=34:antialias=true:hinting=true:bold
+
+
+! URxvt.font: xft:monoco:size=12
+! URxvt.font: xft:monospace:size=12
+
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
