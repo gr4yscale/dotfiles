@@ -6,33 +6,70 @@
 xsetroot -solid '#101010' &
 
 ## keyboard repeat rate
-xset r rate 200 40
+xset r on
+xset r rate 400 50
+
+## add serbian latin , russian cyrillic keyboard layouts
+setxkbmap -model pc105 -layout us,rs,ru -variant ,latinyz,srp -option grp:ctrls_toggle
+
+#keyboard daemon to announce layout change on d-bus, for i3blocks
+kbdd &
+
+
+#power management
+
+# kill bluetooth by default
+#sudo rfkill block bluetooth
+
+# wifi power save
+#sudo iw dev wlp2s0 set power_save on
+
+# disable sd card reader (draws a lot on USB power)
+#echo "2-3" | sudo tee /sys/bus/usb/drivers/usb/unbind
+
+. ~/scripts/power_bluetooth_off.sh
+. ~/scripts/power_sdcard_off.sh
+. ~/scripts/power_wifi_off.sh
+. ~/scripts/net_unmount_all_nfs_shares.sh
+
+
+
+# vnc server
+#x11vnc -display :0 -geometry=1920x1080 -forever -loop -o /home/gr4yscale/.vnc/x11vnc.log
+#x0vncserver -display :0 -rfbport 5900 -passwordfile ~/.vnc/passwd -Log *:stderr:100 > ~/.vnc/x0vncserver.log &
 
 #dropbox
-/home/gr4yscale/.dropbox-dist/dropboxd &
+dropbox &
 
-
-## terminal for i3 scratch
-urxvt -name scratchpad_term &
 
 ## org
 emacs &
-gcal &
+#gcal &
 #simplenote &
-#nixnote2 &
-
-
-# browsing
-#chromium --class=browsing --new-window https://getpocket.com/a/queue/list/ https://feedly.com https://www.reddit.com/ https://tweetdeck.twitter.com/
 
 
 # comms
-gmail &
-messenger &
+#gmail &
+#messenger &
 #whatsapp &
 
 # files
-spacefm &
-#urxvt -name files -e bash -c "ranger"
+#spacefm &
+#thunar &
+#nicotine &
+#deluge &
+urxvt -name files -e bash -c "ranger" &
 
-# dev...
+
+# media
+#gpodder &
+#deadbeef &
+# mopidy chromium app
+
+# photo
+geeqie &
+
+
+# activate screen lock on suspend event
+
+xss-lock -- i3lock -n -i background_image.png &

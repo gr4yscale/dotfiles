@@ -1,0 +1,55 @@
+general {
+  colors = false
+  interval = 1
+}
+
+order += "cpu_usage"
+order += "load"
+order += "disk /"
+order += "disk /home"
+order += "ethernet wlp2s0"
+order += "time"
+
+ethernet wlp2s0 {
+  # sudo setcap cap_net_admin=ep $(which i3status)
+  format_up = "WiFi: %ip"
+  format_down = "WiFi: down"
+}
+
+run_watch VPN {
+  pidfile = "/home/lzap/openvpn/redhat.pid"
+}
+
+time {
+  format = "%A %d.%m.%Y %H:%M"
+}
+
+load {
+  format = "%1min %5min %15min"
+}
+
+cpu_usage {
+  format = "CPU %usage"
+}
+
+disk "/" {
+  format = "Used / %percentage_used"
+  separator = false
+}
+
+disk "/home" {
+  format = "/home %percentage_used"
+}
+
+volume integ {
+  format = "♪I: %volume"
+  format_muted = "♪I: MD"
+  device = "pulse:alsa_output.pci-0000_24_00.3.analog-stereo"
+}
+
+volume headset {
+  format = "♪H: %volume"
+  format_muted = "♪H: MD"
+  device = "pulse:alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo"
+}
+

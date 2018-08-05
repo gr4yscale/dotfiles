@@ -1,1 +1,1 @@
-("~/org/" "~/code/succcculent/" "~/txt-notes/" "~/code/orca/" "~/worg/")
+("~/org/" "~/code/succcculent/" "~/txt-notes/" "~/worg/")

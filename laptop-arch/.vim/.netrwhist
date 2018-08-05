@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/share/doc/ranger/examples'
+let g:netrw_dirhist_2='/home/gr4yscale/.urxvt'
+let g:netrw_dirhist_3='/home/gr4yscale/.config/i3'
+let g:netrw_dirhist_4='/home/gr4yscale/aur/python-poppler-qt5/src/python-poppler-qt5-0.24.2'

@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-# add scripts directory to path
-PATH=~/scripts:$PATH
-
-
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
@@ -22,8 +17,7 @@ export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
 
-# dont let ranger load the default config
-RANGER_LOAD_DEFAULT_RC=false
+
 
 # Set up fzf
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -32,11 +26,6 @@ RANGER_LOAD_DEFAULT_RC=false
 # Set up Node Version Manager (slows down launching a terminal, i just source this manually)
 alias nvm-init='source /usr/share/nvm/init-nvm.sh'
 
-
-# machines
-alias archbeast-internal='ssh -p 39909 gr4yscale@192.168.0.11'
-alias databox-internal='ssh gr4yscale@192.168.0.14'
-alias archbeast="mosh --ssh='ssh -p 39909' -p 40045 gr4yscale@gr4yscale.duckdns.org"
 
 ###### chromium app aliases
 alias gmail='chromium  --app=https://mail.google.com/mail/u/0/#starred'
@@ -63,14 +52,3 @@ alias lock='i3lock -c 101010 -u'
 
 # VM RDP access
 alias windoze='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
-
-# serbian to english google translate
-alias trans='trans sr-Latn:en'
-
-
-
-#alias web-scrape=wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains wikitravel.org --no-parent https://wikitravel.org/e
-
-
-alias englishtoserbian='trans en:sr-Latn'
-alias serbiantoenglish='trans sr-Latn:en'

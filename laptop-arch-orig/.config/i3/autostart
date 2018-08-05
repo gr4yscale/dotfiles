@@ -1,0 +1,38 @@
+#!/bin/sh
+
+##test
+
+## Desktop background color
+xsetroot -solid '#101010' &
+
+## keyboard repeat rate
+xset r rate 200 40
+
+#dropbox
+/home/gr4yscale/.dropbox-dist/dropboxd &
+
+
+## terminal for i3 scratch
+urxvt -name scratchpad_term &
+
+## org
+emacs &
+gcal &
+#simplenote &
+#nixnote2 &
+
+
+# browsing
+#chromium --class=browsing --new-window https://getpocket.com/a/queue/list/ https://feedly.com https://www.reddit.com/ https://tweetdeck.twitter.com/
+
+
+# comms
+gmail &
+messenger &
+#whatsapp &
+
+# files
+spacefm &
+#urxvt -name files -e bash -c "ranger"
+
+# dev...
