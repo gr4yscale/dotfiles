@@ -7,13 +7,13 @@ xsetroot -solid '#101010' &
 
 ## keyboard repeat rate
 xset r on
-xset r rate 400 50
+xset r rate 400 60
 
 ## add serbian latin , russian cyrillic keyboard layouts
 setxkbmap -model pc105 -layout us,rs,ru -variant ,latinyz,srp -option grp:ctrls_toggle
 
 #synergy 
-synergys --daemon -c ~/.synergy.conf &
+synergys --daemon -c ~/.config/.synergy.win.conf &
 
 
 # vnc server
@@ -23,7 +23,7 @@ synergys --daemon -c ~/.synergy.conf &
 #x0vncserver -display :0 -rfbport 5900 -passwordfile ~/.vnc/passwd -Log *:stderr:100 > ~/.vnc/x0vncserver.log &
 
 #dropbox
-#/home/gr4yscale/.dropbox-dist/dropboxd &
+/home/gr4yscale/.dropbox-dist/dropboxd &
 
 
 

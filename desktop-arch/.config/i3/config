@@ -55,7 +55,7 @@ bindsym $mod+Return exec urxvt
 # rofi
 
 #bindsym $mod+d exec dmenu_run
-bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+bindsym Control+space exec "rofi -combi-modi drun,run,window -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
 
 ### focus
 
@@ -214,6 +214,18 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+# synergy
+mode "synergy" {
+	bindsym k exec "sudo killall synergys" mode default
+	bindsym m exec "sudo killall synergys; synergys --daemon -c ~/.config/.synergy.mac.conf" mode default
+	bindsym w exec "sudo killall synergys; synergys --daemon -c ~/.config/.synergy.win.conf" mode default
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "synergy"
 
 
 ### bar config

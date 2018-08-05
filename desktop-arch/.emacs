@@ -150,7 +150,7 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '("~/org/study.org" "~/org/chores-life.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org" "~/org/projects.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
@@ -226,6 +226,10 @@ SCHEDULED: %t")))
 (setq org-hide-leading-stars t)
 
 
+
+
+(use-package ox-hugo
+  :after ox)
 
 
 
@@ -304,7 +308,7 @@ SCHEDULED: %t")))
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
+    (ox-hugo helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
