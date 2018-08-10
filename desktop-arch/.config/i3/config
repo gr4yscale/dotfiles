@@ -52,6 +52,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+Return exec urxvt
 
+
+bindsym Print exec scrot -e 'mv $f ~/screenshots/'
+
 # rofi
 
 #bindsym $mod+d exec dmenu_run
