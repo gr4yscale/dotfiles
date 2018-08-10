@@ -56,9 +56,8 @@ alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
 
 
 # VM RDP access
-alias windoze-floating='rdesktop -g 1920x1080 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15'
-
-alias windoze-full="i3-msg 'workspace 10:extra'; rdesktop -g 1920x1050 -P -z -x l -r sound:off -u gr4yscale -p p@ssw0rd 192.168.0.15; i3-msg 'floating disable'"
+alias windoze-floating='rdesktop -g 1920x1080 -P -z -x l -r sound:remote -0 -u gr4yscale -p p@ssw0rd 192.168.0.15'
+alias windoze-full="i3-msg 'workspace 10:extra'; rdesktop -g 1920x1050 -P -z -x l -r sound:remote -0 -u gr4yscale -p p@ssw0rd 192.168.0.15; i3-msg 'floating disable'"
 
 
 alias scrape='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent '
