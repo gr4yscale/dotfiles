@@ -463,16 +463,11 @@ SCHEDULED: %t")))
 
 
 
-;; final init
 
-(find-file "~/org/index.org")
+;; final init
 
 ;; open agenda
 ;; (org-agenda nil "a")
-
-
-
-
 
 
 
