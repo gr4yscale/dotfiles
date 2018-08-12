@@ -65,8 +65,6 @@ Xft.rgba: rgb
 URxvt.depth:		24
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
-
-URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.scrollBar_floating: false
 URxvt.scrollstyle: rxvt
@@ -86,8 +84,9 @@ URxvt.colorUL:		#4682B4
 
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: linkhandler
+URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+
 
 !! clipboard
 !URxvt.keysym.M-c:   perl:clipboard:copy
@@ -104,9 +103,26 @@ URxvt.clipboard.autocopy: true
 !! resize-font
 URxvt.resize-font.smaller:	C-minus
 URxvt.resize-font.bigger:	C-equals
+
 !! Matcher
-URxvt.url-launcher:	linkhandler
+URxvt.url-launcher:	/usr/bin/xdg-open
 URxvt.matcher.button:	1
+
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+
+URxvt.matcher.rend.0: Uline Bold fg5
+
+
+!! font-size
+!
+! disable bindings for control + shift:
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -116,10 +132,8 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 
-!URxvt.scrollBar: false
-!URxvt.scrollBar_right: false
-!URxvt.scrollBar_floating: false
-!URxvt.scrollstyle: rxvt
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
 
 !URxvt.font: xft:monospace:size=12
 !URxvt*font:     xft:FiraCode:pixelsize=20:antialias=true:hinting=true:regular
