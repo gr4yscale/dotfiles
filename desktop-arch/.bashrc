@@ -46,13 +46,19 @@ alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
 
 
 #youtube-dl (vid)
-alias yt-vid="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -w -i"
-alias yt-aud="youtube-dl -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -w -i -o '%(title)s.%(ext)s'"
-alias yt-music="cd ~/storage/audio/music/organize; youtube-dl -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -w -i -o '%(title)s.%(ext)s'"
+alias yt-vid="youtube-dl -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "
+alias yt-playlist="youtube-dl -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+alias yt-aud="youtube-dl -ciw -x --audio-format best --audio-quality 320k --audio-format mp3 --embed-thumbnail -o '%(title)s.%(ext)s'"
+alias yt-music="cd ~/storage/audio/music/organize; yt-aud"
 
 alias fpvrider='~/bin/FPVFreerider_Recharged_Linux_2018-02-19/FPVFreerider_Recharged.x86_64'
 alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
 
+# handy shortcuts
+alias t='tmux'
+alias ta='tmux a'
+alias bb='i3lock -c 101010 -u && systemctl suspend'
+alias lock='i3lock -c 101010 -u'
 
 
 # VM RDP access
