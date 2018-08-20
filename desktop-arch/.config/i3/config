@@ -58,7 +58,13 @@ bindsym Print exec scrot -e 'mv $f ~/screenshots/'
 # rofi
 
 #bindsym $mod+d exec dmenu_run
-bindsym Control+space exec "rofi -combi-modi drun,run,window -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+bindsym Control+space exec "rofi -combi-modi drun,window,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+
+
+# rofi invocation with run list command for bash aliases (slower)
+#bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
+
+
 
 ### focus
 
@@ -300,8 +306,6 @@ assign [class="Vocal"] $ws6
 assign [class="Gpodder"] $ws6
 #assign [class="mpv"] $ws6
 for_window [class="mpv"] floating enable sticky enable border normal
-#zenity dialogs
-for_window [class="zenity"] floating enable sticky enable border normal
 
 
 ### photo
@@ -310,12 +314,13 @@ assign [class="geeqie"] $ws8
 
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal
-
+#zenity dialogs
+for_window [class="zenity"] floating enable sticky enable border normal
+for_window [instance="translate"] border 1pixel; floating enable
 
 ### scratch
 
-for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
-for_window [instance="scratchpad_file"] border 1pixel; move scratchpad
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -328,18 +333,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
 
 
 # Caps lock as control
 exec_always setxkbmap -option ctrl:nocaps
 
 ###  autostart
-exec urxvt -name scratchpad_term -e bash
-exec thunar -name scratchpad_file
+
+#exec thunar -name scratchpad_file
 exec ~/.config/i3/autostart
 
 #polybar

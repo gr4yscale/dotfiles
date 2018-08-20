@@ -53,7 +53,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Return exec urxvt
 
 
-bindsym Print exec scrot
+bindsym Print exec scrot -e 'mv $f ~/screenshots/'
 
 # rofi
 
@@ -62,7 +62,6 @@ bindsym Control+space exec "rofi -combi-modi drun,window,run -show combi -modi c
 
 
 # rofi invocation with run list command for bash aliases (slower)
-
 #bindsym Control+space exec "rofi -combi-modi window,drun,run -show combi -modi combi -c ~/.config/rofi/config -run-list-command \\". ~/scripts/rofi_aliases.sh\\" -run-command \\"/bin/bash -i -c '{cmd}'\\""
 
 
@@ -304,21 +303,16 @@ for_window [class="mpv"] floating enable sticky enable border normal
 ### photo
 assign [class="Rawtherapee"] $ws8
 assign [class="geeqie"] $ws8
-assign [window_role="geeqie"] $ws8
-assign [instance="geeqie"] $ws8
 
 ### floating windows
 for_window [class="Lxappearence"] floating enable sticky enable border normal
-
-for_window [instance="translate"] border 1pixel; floating enable
-
 #zenity dialogs
 for_window [class="zenity"] floating enable sticky enable border normal
+for_window [instance="translate"] border 1pixel; floating enable
 
 ### scratch
 
-for_window [instance="scratchpad_term"] border 1pixel; move scratchpad
-for_window [instance="scratchpad_file"] border 1pixel; move scratchpad
+
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
