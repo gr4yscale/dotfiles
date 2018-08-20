@@ -35,6 +35,15 @@
 (setq use-package-always-ensure t)
 
 
+
+
+;; org bullets
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-bullets-bullet-list '("•")))
+
+
 ;; hack
 ;; ensure tab key works in org when in normal mode using evil
 (setq evil-want-C-i-jump nil)
@@ -62,7 +71,15 @@
 ;; workgroups2 (workspaces)
 (use-package workgroups2
   :config
-(workgroups-mode 1))
+  (setq wg-session-load-on-start t)
+  ;; Change prefix key (before activating WG)
+  (setq wg-prefix-key (kbd "C-c z"))
+  ;; Change workgroups session file
+  (setq wg-session-file "~/.emacs.d/.workgroups")
+  ;; What to do on Emacs exit / workgroups-mode exit?
+  (setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
+  (setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
+  (workgroups-mode 1))
 
 
 ;; switch-window (visual window switching)
@@ -119,6 +136,9 @@
 ;; config
 ;; ------
 
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+
 
 ;; Minimal UI
 (scroll-bar-mode -1)
@@ -126,6 +146,8 @@
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
 
+
+(use-package atom-one-dark-theme)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme-atom-one-dark")
 (load-theme 'atom-one-dark t)
@@ -146,6 +168,12 @@
 (setq custom-safe-themes t) 
 
 
+;; line wrapping
+(global-visual-line-mode 1)
+
+;; make yes or no prompts shorter
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; don't litter directories with backup files:
 (setq backup-directory-alist
 	  `((".*" . ,temporary-file-directory)))
@@ -163,19 +191,6 @@
 
 
 
-;; workgroups2
-
-;;(setq wg-session-load-on-start t)    ; default: (not (daemonp))
-
-;; Change prefix key (before activating WG)
-(setq wg-prefix-key (kbd "C-c z"))
-
-;; Change workgroups session file
-(setq wg-session-file "~/.emacs.d/.workgroups")
-
-;; What to do on Emacs exit / workgroups-mode exit?
-(setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
-(setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
 
 ;; Set your own keyboard shortcuts to reload/save/switch WGs:
 ;; "s" == "Super" or "Win"-key, "S" == Shift, "C" == Control
@@ -238,6 +253,9 @@
 
 ;; org
 (setq org-cycle-separator-lines 1) 
+
+
+(setq org-tags-column -80)
 
 ;; org paths
 
@@ -326,11 +344,6 @@ SCHEDULED: %t")))
   (org-capture nil "a"))
 
 
-;; org bullets
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-bullets-bullet-list '("•")))
 
 ;; hide stars
 (setq org-hide-leading-stars t)

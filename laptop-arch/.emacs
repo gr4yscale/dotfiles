@@ -71,7 +71,15 @@
 ;; workgroups2 (workspaces)
 (use-package workgroups2
   :config
-(workgroups-mode 1))
+  (setq wg-session-load-on-start t)
+  ;; Change prefix key (before activating WG)
+  (setq wg-prefix-key (kbd "C-c z"))
+  ;; Change workgroups session file
+  (setq wg-session-file "~/.emacs.d/.workgroups")
+  ;; What to do on Emacs exit / workgroups-mode exit?
+  (setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
+  (setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
+  (workgroups-mode 1))
 
 
 ;; switch-window (visual window switching)
@@ -183,19 +191,6 @@
 
 
 
-;; workgroups2
-
-;;(setq wg-session-load-on-start t)    ; default: (not (daemonp))
-
-;; Change prefix key (before activating WG)
-(setq wg-prefix-key (kbd "C-c z"))
-
-;; Change workgroups session file
-(setq wg-session-file "~/.emacs.d/.workgroups")
-
-;; What to do on Emacs exit / workgroups-mode exit?
-(setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
-(setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
 
 ;; Set your own keyboard shortcuts to reload/save/switch WGs:
 ;; "s" == "Super" or "Win"-key, "S" == Shift, "C" == Control
@@ -357,6 +352,7 @@ SCHEDULED: %t")))
 
 
 
+
 ;; custom functions
 
 (defun revert-all-buffers ()
@@ -496,3 +492,5 @@ SCHEDULED: %t")))
 
 ;; open agenda
 ;; (org-agenda nil "a")
+
+
