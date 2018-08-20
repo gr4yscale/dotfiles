@@ -65,35 +65,30 @@ Xft.rgba: rgb
 URxvt.depth:		24
 URxvt.scrollBar:	false
 URxvt.cursorColor:	white
-
-URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.scrollBar_floating: false
 URxvt.scrollstyle: rxvt
 
-urxvt.perl-lib:                     /home/gr4yscale/bin/urxvt-font
-urxvt.keysym.Control-Shift-Up:      perl:font:increment
-urxvt.keysym.Control-Shift-Down:    perl:font:decrement
-urxvt.perl-ext-common:              font
+!URxvt.perl-lib:                     /usr/lib/urxvt/perl/
 
-urxvt*boldColors: on
-urxvt*font:     xft:FiraCode:pixelsize=14:antialias=true:hinting=true:regular
-urxvt*boldFont: xft:FiraCode:pixelsize=14:antialias=true:hinting=true:bold
+URxvt*boldColors: on
+URxvt*font:     xft:FiraCode:pixelsize=14:antialias=true:hinting=true:regular
+URxvt*boldFont: xft:FiraCode:pixelsize=14:antialias=true:hinting=true:bold
 
 !! Extensions
-URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:		#4682B4
 
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: linkhandler
+URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+
 
 !! clipboard
 !URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-c: perl:keyboard-select:activate
+!URxvt.keysym.M-v:   perl:clipboard:paste
+!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
@@ -101,12 +96,28 @@ URxvt.keysym.M-r: perl:keyboard-select:search
 URxvt.keyboard-select.clipboard: true
 URxvt.clipboard.autocopy: true
 
+
+!! Matcher
+URxvt.url-launcher:	/usr/bin/xdg-open
+URxvt.matcher.button:	1
+
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+
+URxvt.matcher.rend.0: Uline Bold fg5
+
+
 !! resize-font
 URxvt.resize-font.smaller:	C-minus
 URxvt.resize-font.bigger:	C-equals
-!! Matcher
-URxvt.url-launcher:	linkhandler
-URxvt.matcher.button:	1
+!
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+
+! disable bindings for control + shift:
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
@@ -116,28 +127,6 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 
-!URxvt.scrollBar: false
-!URxvt.scrollBar_right: false
-!URxvt.scrollBar_floating: false
-!URxvt.scrollstyle: rxvt
-
-!URxvt.font: xft:monospace:size=12
-!URxvt*font:     xft:FiraCode:pixelsize=20:antialias=true:hinting=true:regular
-!URxvt*boldFont: xft:FiraCode:pixelsize=20:antialias=true:hinting=true:bold
-
-
-! old font-size config
-
-! font size plugin config
-! (installed in ~/.urxvt/ext/font-size
-
-!URxvt.font-size.step: 4
-!URxvt.keysym.C-Up:     font-size:increase
-!URxvt.keysym.C-Down:   font-size:decrease
-!URxvt.keysym.C-S-Up:   font-size:incglobal
-!URxvt.keysym.C-S-Down: font-size:decglobal
-!URxvt.keysym.C-equal:  font-size:reset
-!URxvt.keysym.C-slash:  font-size:show
-
-
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
 
