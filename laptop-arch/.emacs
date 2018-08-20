@@ -20,7 +20,6 @@
 (package-initialize)
 
 
-
 ;; Install 'use-package' if necessary
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -31,22 +30,56 @@
 (eval-when-compile
   (require 'use-package))
 
+;; globally ensure that all packages refered by use-packaged are installed if not already installed
+;; https://github.com/jwiegley/use-package/blob/master/README.md#package-installation
+(setq use-package-always-ensure t)
 
+
+
+
+;; org bullets
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-bullets-bullet-list '("•")))
+
+
+;; hack
 ;; ensure tab key works in org when in normal mode using evil
 (setq evil-want-C-i-jump nil)
 
 
-;; Extras
-(require 'evil)
-(require 'evil-leader)
-(require 'evil-org)
-(require 'workgroups2)
-(require 'switch-window)
+;; evil
+(use-package evil
+  :config
+  (evil-mode 1))
 
 
-;; Helm
+;; evil-leader
+(use-package evil-leader)
+
+
+;; evil-org
+(use-package evil-org
+  :config
+(evil-org-mode 1)
+;; fix TAB key interference between org and evil-mode
+;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
+)
+
+;; workgroups2 (workspaces)
+(use-package workgroups2
+  :config
+(workgroups-mode 1))
+
+
+;; switch-window (visual window switching)
+(use-package switch-window)
+
+
+;; helm
 (use-package helm
-  :ensure t
   :init
   (setq helm-M-x-fuzzy-match t
   helm-mode-fuzzy-match t
@@ -62,36 +95,41 @@
   helm-echo-input-in-header-line t
   helm-autoresize-max-height 0
   helm-autoresize-min-height 20)
+  (require' helm-config)
   :config
   (helm-mode 1))
 
-;; Projectile
+
+;; projectile
 (use-package projectile
-  :ensure t
   :init
   :config
-  (projectile-mode 1))
-
-(require 'helm-config)
-;; needs to happen before the require
-(setq helm-follow-mode-persistent t)
-(require 'helm-ag)
-
-;;(require 'rg)
-;;(rg-enable-default-bindings (kbd "M-s"))
-(require 'org-agenda)
+  (projectile-mode 1)
+  (projectile-global-mode))
 
 
+(use-package counsel)
+
+;; ox-hugo (exports org -> hugo markdown)
 (use-package ox-hugo
   :after ox)
 
 
 
+;; don't need anymore
+
+;; org-agenda
+;;(use-package org-agenda)
+
+;;(require 'evil-counsel))
 
 
 ;; ------
 ;; config
 ;; ------
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
 
 
 ;; Minimal UI
@@ -101,19 +139,19 @@
 (menu-bar-mode   -1)
 
 
+(use-package atom-one-dark-theme)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme-atom-one-dark")
 (load-theme 'atom-one-dark t)
 
 (add-to-list 'default-frame-alist
-	                            '(font . "Monaco 11"))
+	                            '(font . "Monaco 10"))
 
 ;; gui options that dont matter for terminal usage
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t
       inhibit-startup-message t
       inhibit-startup-echo-area-message t)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
 
 (setq visible-bell t)
 (setq vc-follow-symlinks t)
@@ -122,6 +160,12 @@
 (setq custom-safe-themes t) 
 
 
+;; line wrapping
+(global-visual-line-mode 1)
+
+;; make yes or no prompts shorter
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; don't litter directories with backup files:
 (setq backup-directory-alist
 	  `((".*" . ,temporary-file-directory)))
@@ -129,24 +173,13 @@
       `((".*" ,temporary-file-directory t)))
 
 
-
-
-;; modes
-(evil-mode t)
-(evil-org-mode 1)
+;; modes (TOFIX clean this up)
 (transient-mark-mode 1)					 ;; Enable transient mark mode
 (org-indent-mode 1)
-(projectile-global-mode)
-
-;;(global-auto-revert-mode 1)
 
 
 ;; easier window switching
 (global-set-key (kbd "C-x o") 'switch-window)
-
-;; fix TAB key interference between org and evil-mode
-;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
-(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
 
 
 
@@ -174,7 +207,6 @@
 
 ;; Which Key
 (use-package which-key
-  :ensure t
   :init
   (setq which-key-separator " ")
   (setq which-key-prefix-prefix "+")
@@ -182,11 +214,8 @@
   (which-key-mode 1))
 
 
-;; projectile + helm
-
 ;; Helm
 (use-package helm
-  :ensure t
   :init
   (setq helm-M-x-fuzzy-match t
 	helm-mode-fuzzy-match t
@@ -206,14 +235,13 @@
   (helm-mode 1))
 
 ;; RipGrep
-(use-package helm-rg :ensure t)
+(use-package helm-rg)
 
 
 
 
 ;; Helm Projectile
 (use-package helm-projectile
-  :ensure t
   :init
   (setq helm-projectile-fuzzy-match t)
 	;; when project is switched, list files
@@ -230,6 +258,9 @@
 
 ;; org
 (setq org-cycle-separator-lines 1) 
+
+
+(setq org-tags-column -80)
 
 ;; org paths
 
@@ -273,6 +304,11 @@ SCHEDULED: %t")))
 (setq org-agenda-skip-scheduled-if-done t)
 
 
+(setq org-agenda-span 9
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-2d")
+
+
 ;; TOFIX: next one not in use
 ;;(defun pop-to-org-agenda (split)
 ;;  "Visit the org agenda, in the current window or a SPLIT."
@@ -313,16 +349,9 @@ SCHEDULED: %t")))
   (org-capture nil "a"))
 
 
-;; org bullets
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-bullets-bullet-list '("•")))
 
 ;; hide stars
 (setq org-hide-leading-stars t)
-
 
 
 
@@ -383,7 +412,7 @@ SCHEDULED: %t")))
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (spacemacs-theme helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
+    (general counsel-org-clock ox-hugo helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -430,7 +459,6 @@ SCHEDULED: %t")))
 
 ;; Custom keybinding
 (use-package general
-  :ensure t
   :config (general-define-key
   :states '(normal visual insert emacs)
   :prefix "SPC"
@@ -468,7 +496,3 @@ SCHEDULED: %t")))
 
 ;; open agenda
 ;; (org-agenda nil "a")
-
-
-
-(workgroups-mode 1)
