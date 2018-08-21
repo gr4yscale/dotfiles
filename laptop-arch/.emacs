@@ -35,102 +35,8 @@
 (setq use-package-always-ensure t)
 
 
-
-
-;; org bullets
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-bullets-bullet-list '("•")))
-
-
-;; hack
-;; ensure tab key works in org when in normal mode using evil
-(setq evil-want-C-i-jump nil)
-
-
-;; evil
-(use-package evil
-  :config
-  (evil-mode 1))
-
-
-;; evil-leader
-(use-package evil-leader)
-
-
-;; evil-org
-(use-package evil-org
-  :config
-(evil-org-mode 1)
-;; fix TAB key interference between org and evil-mode
-;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
-(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
-)
-
-;; workgroups2 (workspaces)
-(use-package workgroups2
-  :config
-  (setq wg-session-load-on-start t)
-  ;; Change prefix key (before activating WG)
-  (setq wg-prefix-key (kbd "C-c z"))
-  ;; Change workgroups session file
-  (setq wg-session-file "~/.emacs.d/.workgroups")
-  ;; What to do on Emacs exit / workgroups-mode exit?
-  (setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
-  (setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
-  (workgroups-mode 1))
-
-
-;; switch-window (visual window switching)
-(use-package switch-window)
-
-
-;; helm
-(use-package helm
-  :init
-  (setq helm-M-x-fuzzy-match t
-  helm-mode-fuzzy-match t
-  helm-buffers-fuzzy-matching t
-  helm-recentf-fuzzy-match t
-  helm-locate-fuzzy-match t
-  helm-semantic-fuzzy-match t
-  helm-imenu-fuzzy-match t
-  helm-completion-in-region-fuzzy-match t
-  helm-candidate-number-list 150
-  helm-split-window-in-side-p t
-  helm-move-to-line-cycle-in-source t
-  helm-echo-input-in-header-line t
-  helm-autoresize-max-height 0
-  helm-autoresize-min-height 20)
-  (require' helm-config)
-  :config
-  (helm-mode 1))
-
-
-;; projectile
-(use-package projectile
-  :init
-  :config
-  (projectile-mode 1)
-  (projectile-global-mode))
-
-
-(use-package counsel)
-
-;; ox-hugo (exports org -> hugo markdown)
-(use-package ox-hugo
-  :after ox)
-
-
-
-;; don't need anymore
-
 ;; org-agenda
 ;;(use-package org-agenda)
-
-;;(require 'evil-counsel))
-
 
 ;; ------
 ;; config
@@ -183,71 +89,7 @@
 
 ;; modes (TOFIX clean this up)
 (transient-mark-mode 1)					 ;; Enable transient mark mode
-(org-indent-mode 1)
-
-
-;; easier window switching
-(global-set-key (kbd "C-x o") 'switch-window)
-
-
-
-
-;; Set your own keyboard shortcuts to reload/save/switch WGs:
-;; "s" == "Super" or "Win"-key, "S" == Shift, "C" == Control
-(global-set-key (kbd "<pause>")     'wg-reload-session)
-(global-set-key (kbd "C-S-<pause>") 'wg-save-session)
-(global-set-key (kbd "s-z")         'wg-switch-to-workgroup)
-(global-set-key (kbd "s-/")         'wg-switch-to-previous-workgroup)
-
-
-;; Which Key
-(use-package which-key
-  :init
-  (setq which-key-separator " ")
-  (setq which-key-prefix-prefix "+")
-  :config
-  (which-key-mode 1))
-
-
-;; Helm
-(use-package helm
-  :init
-  (setq helm-M-x-fuzzy-match t
-	helm-mode-fuzzy-match t
-	helm-buffers-fuzzy-matching t
-	helm-recentf-fuzzy-match t
-	helm-locate-fuzzy-match t
-	helm-semantic-fuzzy-match t
-	helm-imenu-fuzzy-match t
-	helm-completion-in-region-fuzzy-match t
-	helm-candidate-number-list 80
-	helm-split-window-in-side-p t
-	helm-move-to-line-cycle-in-source t
-	helm-echo-input-in-header-line t
-	helm-autoresize-max-height 0
-	helm-autoresize-min-height 20)
-  :config
-  (helm-mode 1))
-
-;; RipGrep
-(use-package helm-rg)
-
-
-
-
-;; Helm Projectile
-(use-package helm-projectile
-  :init
-  (setq helm-projectile-fuzzy-match t)
-	;; when project is switched, list files
-  (setq projectile-switch-project-action 'projectile-dired
-	projectile-project-search-path '("~/org/" "~/txt/")
-	projectile-indexing-method 'alien
-	projectile-require-project-root nil)
-  :config
-  (helm-projectile-on))
-
-
+;; (org-indent-mode 1)
 
 
 
@@ -353,6 +195,143 @@ SCHEDULED: %t")))
 
 
 
+
+;; org bullets
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-bullets-bullet-list '("•")))
+
+
+;; hack
+;; ensure tab key works in org when in normal mode using evil
+(setq evil-want-C-i-jump nil)
+
+
+;; evil
+(use-package evil
+  :config
+  (evil-mode 1))
+
+
+;; evil-leader
+(use-package evil-leader)
+
+
+;; evil-org
+(use-package evil-org
+  :config
+(evil-org-mode 1)
+;; fix TAB key interference between org and evil-mode
+;;(define-key org-mode-map (kbd "<tab>") 'org-cycle)
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
+)
+
+;; workgroups2 (workspaces)
+(use-package workgroups2
+  :config
+  (setq wg-session-load-on-start t)
+  ;; Change prefix key (before activating WG)
+  (setq wg-prefix-key (kbd "C-c z"))
+  ;; Change workgroups session file
+  (setq wg-session-file "~/.emacs.d/.workgroups")
+  ;; What to do on Emacs exit / workgroups-mode exit?
+  (setq wg-emacs-exit-save-behavior           'ask)      ; Options: 'save 'ask nil
+  (setq wg-workgroups-mode-exit-save-behavior 'ask)      ; Options: 'save 'ask nil
+  (workgroups-mode 1))
+
+
+;; switch-window (visual window switching)
+(use-package switch-window)
+
+
+;; helm
+(use-package helm
+  :init
+  (setq helm-M-x-fuzzy-match t
+  helm-mode-fuzzy-match t
+  helm-buffers-fuzzy-matching t
+  helm-recentf-fuzzy-match t
+  helm-locate-fuzzy-match t
+  helm-semantic-fuzzy-match t
+  helm-imenu-fuzzy-match t
+  helm-completion-in-region-fuzzy-match t
+  helm-candidate-number-list 150
+  helm-split-window-in-side-p t
+  helm-move-to-line-cycle-in-source t
+  helm-echo-input-in-header-line t
+  helm-autoresize-max-height 0
+  helm-autoresize-min-height 20)
+  (require' helm-config)
+  :config
+  (helm-mode 1))
+
+
+;; projectile
+(use-package projectile
+  :init
+  :config
+  (projectile-mode 1)
+  (projectile-global-mode))
+
+
+(use-package counsel)
+
+;; ox-hugo (exports org -> hugo markdown)
+(use-package ox-hugo
+  :after ox)
+
+
+;; Which Key
+(use-package which-key
+  :init
+  (setq which-key-separator " ")
+  (setq which-key-prefix-prefix "+")
+  :config
+  (which-key-mode 1))
+
+
+;; Helm
+(use-package helm
+  :init
+  (setq helm-M-x-fuzzy-match t
+	helm-mode-fuzzy-match t
+	helm-buffers-fuzzy-matching t
+	helm-recentf-fuzzy-match t
+	helm-locate-fuzzy-match t
+	helm-semantic-fuzzy-match t
+	helm-imenu-fuzzy-match t
+	helm-completion-in-region-fuzzy-match t
+	helm-candidate-number-list 80
+	helm-split-window-in-side-p t
+	helm-move-to-line-cycle-in-source t
+	helm-echo-input-in-header-line t
+	helm-autoresize-max-height 0
+	helm-autoresize-min-height 20)
+  :config
+  (helm-mode 1))
+
+;; RipGrep
+(use-package helm-rg)
+
+
+;; Helm Projectile
+(use-package helm-projectile
+  :init
+  (setq helm-projectile-fuzzy-match t)
+	;; when project is switched, list files
+  (setq projectile-switch-project-action 'projectile-dired
+	projectile-project-search-path '("~/org/" "~/txt/")
+	projectile-indexing-method 'alien
+	projectile-require-project-root nil)
+  :config
+  (helm-projectile-on))
+
+
+
+
+
+
 ;; custom functions
 
 (defun revert-all-buffers ()
@@ -428,8 +407,17 @@ SCHEDULED: %t")))
 ;; keybindings
 ;; -----------
 
+;; easier window switching
+(global-set-key (kbd "C-x o") 'switch-window)
 
-;; (define-key global-map (kbd "C-c t a") 'pop-to-org-agenda)
+;; Set your own keyboard shortcuts to reload/save/switch WGs:
+;; "s" == "Super" or "Win"-key, "S" == Shift, "C" == Control
+(global-set-key (kbd "<pause>")     'wg-reload-session)
+(global-set-key (kbd "C-S-<pause>") 'wg-save-session)
+(global-set-key (kbd "s-z")         'wg-switch-to-workgroup)
+(global-set-key (kbd "s-/")         'wg-switch-to-previous-workgroup)
+
+
 
 (global-set-key [f9] 'toggle-maximize-buffer)
 
