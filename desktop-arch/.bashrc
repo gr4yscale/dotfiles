@@ -55,6 +55,17 @@ alias fpvrider='~/bin/FPVFreerider_Recharged_Linux_2018-02-19/FPVFreerider_Recha
 alias velocidrone='~/bin/velocidrone-1-11-0-418-linux-rc/velocidrone.x86_64'
 
 # handy shortcuts
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+alias r='ranger-cd'
 alias t='tmux'
 alias ta='tmux a'
 alias bb='i3lock -c 101010 -u && systemctl suspend'

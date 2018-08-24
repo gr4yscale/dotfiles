@@ -55,6 +55,17 @@ alias yt-music="cd ~/storage/audio/music/organize; yt-aud"
 
 
 # handy shortcuts
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+alias r='ranger-cd'
 alias t='tmux'
 alias ta='tmux a'
 alias bb='i3lock -c 101010 -u && systemctl suspend'
