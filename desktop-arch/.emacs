@@ -103,7 +103,7 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org/study.org" "~/org/chores-life.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org" "~/org/projects.org"))
+(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
@@ -385,6 +385,9 @@ SCHEDULED: %t")))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/org/chores-digital.org" "~/org/study.org" "~/org/chores-life.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/projects.org")))
  '(package-selected-packages
    (quote
     (general counsel-org-clock ox-hugo helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))

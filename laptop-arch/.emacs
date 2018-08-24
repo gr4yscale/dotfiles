@@ -103,7 +103,7 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org/study.org" "~/org/chores-life.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org" "~/org/projects.org"))
+(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
