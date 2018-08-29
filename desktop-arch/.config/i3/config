@@ -190,7 +190,13 @@ bindsym $mod+bracketright move workspace to output right
 
 ### scratchpad terminal
 
-bindsym $mod+Shift+equal scratchpad show
+for_window [instance="scratch"] floating enable
+for_window [instance="scratch"] resize set 1000 800
+for_window [instance="scratch"] move scratchpad
+for_window [instance="scratch"] border pixel 5
+exec_always --no-startup-id urxvt -name scratch -e tmux
+
+bindsym $mod+u	[instance="scratch"] scratchpad show; [instance="scratch"] move position center
 
 
 
@@ -318,7 +324,6 @@ for_window [class="Lxappearence"] floating enable sticky enable border normal
 for_window [class="zenity"] floating enable sticky enable border normal
 for_window [instance="translate"] border 1pixel; floating enable
 
-### scratch
 
 
 
