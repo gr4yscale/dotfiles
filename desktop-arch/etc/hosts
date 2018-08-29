@@ -1,0 +1,18 @@
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+127.0.0.1	archbeast.local		archbeast
+
+192.168.0.14	databox.local		databox
+10.1.1.3	databox.10g.local	databox.10g
+
+192.168.0.10	kodi.local		kodi
+192.168.0.150	gr4ystreamer.local	gr4ystreamer
+192.168.0.11	Tylers-MacBook-Pro.local		Tylers-MacBook-Pro
+
+#vm
+192.168.0.22	win10.local		win10
+# End of file

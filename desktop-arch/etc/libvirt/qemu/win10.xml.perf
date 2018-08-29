@@ -8,9 +8,24 @@ or other application using the libvirt API.
 <domain type='kvm'>
   <name>win10</name>
   <uuid>e2e9efa1-8d3e-406f-acf0-063f95478ced</uuid>
-  <memory unit='KiB'>8388608</memory>
-  <currentMemory unit='KiB'>8388608</currentMemory>
-  <vcpu placement='static'>6</vcpu>
+  <memory unit='KiB'>16777216</memory>
+  <currentMemory unit='KiB'>16777216</currentMemory>
+  <memoryBacking>
+    <hugepages/>
+  </memoryBacking>
+  <vcpu placement='static'>10</vcpu>
+  <cputune>
+    <vcpupin vcpu='0' cpuset='7'/>
+    <vcpupin vcpu='1' cpuset='19'/>
+    <vcpupin vcpu='2' cpuset='8'/>
+    <vcpupin vcpu='3' cpuset='20'/>
+    <vcpupin vcpu='4' cpuset='9'/>
+    <vcpupin vcpu='5' cpuset='21'/>
+    <vcpupin vcpu='6' cpuset='10'/>
+    <vcpupin vcpu='7' cpuset='22'/>
+    <vcpupin vcpu='8' cpuset='11'/>
+    <vcpupin vcpu='9' cpuset='23'/>
+  </cputune>
   <os>
     <type arch='x86_64' machine='pc-i440fx-2.11'>hvm</type>
     <loader readonly='yes' type='pflash'>/usr/share/ovmf/x64/OVMF_CODE.fd</loader>
@@ -32,9 +47,8 @@ or other application using the libvirt API.
     </kvm>
     <vmport state='off'/>
   </features>
-  <cpu mode='host-model' check='partial'>
-    <model fallback='allow'/>
-    <topology sockets='1' cores='3' threads='2'/>
+  <cpu>
+    <topology sockets='1' cores='5' threads='2'/>
   </cpu>
   <clock offset='localtime'>
     <timer name='rtc' tickpolicy='catchup'/>
@@ -53,7 +67,7 @@ or other application using the libvirt API.
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='block' device='disk'>
       <driver name='qemu' type='raw' cache='none' io='native'/>
-      <source dev='/dev/sdd'/>
+      <source dev='/dev/disk/by-id/nvme-Samsung_SSD_960_PRO_512GB_S3EWNX0J532801W'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x02' slot='0x0a' function='0x0'/>
     </disk>

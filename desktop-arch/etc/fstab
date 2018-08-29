@@ -6,23 +6,31 @@
 UUID=04fff541-18f2-4dff-a0d7-10c8159a26f1	/         	ext4      	rw,relatime,data=ordered	0 1
 
 #UUID=EF00-1687      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
-
 #/dev/nvme0n1p1      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
-
 PARTUUID="6ba2f44c-c682-bc48-8f90-f192a9b61661"      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
-
 
 # /dev/nvme0n1p4
 UUID=ce976a6b-abb1-49e3-87db-d0bd28ff1666	/home	ext4	defaults	0	2
 
-
 UUID=f4d8e829-48f9-4e02-bfba-c76872d1efc8 none swap defaults 0 0
 
-# raid0 disk array (3x4TB)
+# LVM on 3x4TB RAID0
 /dev/mapper/vg0-lv0	/mnt/storage	ext4	defaults	0	2
 
+# NFS exports
+/mnt/storage	/srv/nfs/storage  none   bind   0   0 
+/home/gr4yscale	/srv/nfs/home	none   bind   0   0 
+
+# Network shares
+databox.10g.local:/srv/nfs/storage	/home/gr4yscale/databox-storage  nfs  noauto,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,x-systemd.idle-timeout=1min 0 0
+
+# Misc
+
 #gr4ystreamer
-//gr4ystreamer.local/media	/mnt/gr4ystreamer	cifs	noauto,guest,uid=gr4yscale,gid=wheel	0	0
+#//gr4ystreamer.local/media	/mnt/gr4ystreamer	cifs	noauto,guest,uid=gr4yscale,gid=wheel	0	0
 
 #kodi
-//kodi.local/storage	/mnt/kodi		cifs	noauto,guest,uid=gr4yscale,gid=wheel	0	0
+#//kodi.local/storage	/mnt/kodi		cifs	noauto,guest,uid=gr4yscale,gid=wheel	0	0
+
+#rMBP
+#//Tylers-MacBook-Pro.local/gr4yscale	/mnt/rMBP-gr4yscale	cifs	noauto,username=gr4yscale,password=pass,uid=gr4yscale,gid=wheel	0	0

@@ -84,6 +84,13 @@ or other application using the libvirt API.
       <model type='cirrus' vram='16384' heads='1' primary='yes'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
     </video>
+    <hostdev mode='subsystem' type='usb' managed='yes'>
+      <source>
+        <vendor id='0x0bda'/>
+        <product id='0x8153'/>
+      </source>
+      <address type='usb' bus='0' port='1'/>
+    </hostdev>
     <memballoon model='virtio'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </memballoon>
