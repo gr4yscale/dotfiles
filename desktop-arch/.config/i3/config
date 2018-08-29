@@ -303,7 +303,7 @@ assign [instance="otherworldly.slack.com__messages_D72R0KDFX"] $ws4
 #files
 assign [window_role="file_manager"] $ws5
 assign [class="Thunar"] $ws5
-assign [instance="ranger"] $ws5
+assign [instance="files"] $ws5
 assign [class="Nicotine"] $ws5
 assign [class="Deluge"] $ws5
 

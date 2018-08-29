@@ -103,7 +103,7 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/correspondence.org" "~/org/errands.org" "~/org/chores-digital.org"))
+(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/social.org" "~/org/errands.org" "~/org/chores-digital.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
@@ -128,6 +128,8 @@
   "Date format string for journal headings.")
 
 
+
+
 ;; org capture templates
 (setq org-capture-templates
       '(("a" "My TODO task format." entry
@@ -135,6 +137,13 @@
          "* TODO %?
 SCHEDULED: %t")))
 
+
+
+;; refile targets
+(setq org-refile-targets '((nil :maxlevel . 3)
+                                (org-agenda-files :maxlevel . 3)))
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
 
 ;; agenda customization
@@ -168,7 +177,7 @@ SCHEDULED: %t")))
       '(("w" "weekday"
          ((tags-todo "study")
           (tags-todo "life")
-          (tags-todo "correspondence")
+          (tags-todo "social")
           (tags-todo "digital")
           (tags-todo "errand")
           (tags-todo "project")))))
@@ -385,9 +394,9 @@ SCHEDULED: %t")))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
+ '(org-agenda-files
    (quote
-    (general counsel-org-clock ox-hugo helm-ag transpose-frame workgroups2 projectile org-bullets use-package helm-anything geben-helm-projectile evil-visual-mark-mode evil-org evil-leader))))
+    ("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/errands.org" "~/org/chores-digital.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

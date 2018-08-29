@@ -128,6 +128,8 @@
   "Date format string for journal headings.")
 
 
+
+
 ;; org capture templates
 (setq org-capture-templates
       '(("a" "My TODO task format." entry
@@ -135,6 +137,13 @@
          "* TODO %?
 SCHEDULED: %t")))
 
+
+
+;; refile targets
+(setq org-refile-targets '((nil :maxlevel . 3)
+                                (org-agenda-files :maxlevel . 3)))
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 
 
 ;; agenda customization
