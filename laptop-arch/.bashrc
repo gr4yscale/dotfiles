@@ -29,8 +29,10 @@ RANGER_LOAD_DEFAULT_RC=false
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-# Set up Node Version Manager (slows down launching a terminal, i just source this manually)
-alias nvm-init='source /usr/share/nvm/init-nvm.sh'
+# node / nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # machines
