@@ -59,7 +59,7 @@
 (load-theme 'atom-one-dark t)
 
 (add-to-list 'default-frame-alist
-	                            '(font . "Monaco 10"))
+	                            '(font . "Monaco 8"))
 
 ;; gui options that dont matter for terminal usage
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
@@ -109,8 +109,10 @@
 ;; todo, in progress, waiting | done, canceled
 ;; in progress | canceled, done
 (setq org-todo-keywords
-      '((sequence "⚡" "|" "⛔" "✓")))
+      '((sequence "★" "⚡" "|" "⛔" "✓")))
 
+;;      '((sequence "❗" "⚡" "|" "⛔" "✓")))
+;;      '((sequence "❗" "⚡" "|" "⛔" "✓")))
 ;;(setq org-todo-keywords
 ;;      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
