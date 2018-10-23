@@ -103,14 +103,16 @@
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/social.org" "~/org/errands.org" "~/org/chores-digital.org"))
+(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/outside.org" "~/org/social.org" "~/org/chores-digital.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
 ;; in progress | canceled, done
 (setq org-todo-keywords
-      '((sequence "⚡" "|" "⛔" "✓")))
+      '((sequence "★" "⚡" "|" "⛔" "✓")))
 
+;;      '((sequence "❗" "⚡" "|" "⛔" "✓")))
+;;      '((sequence "❗" "⚡" "|" "⛔" "✓")))
 ;;(setq org-todo-keywords
 ;;      '((sequence "TODO" "IN-PROGRESS" "WAITING" "|" "DONE" "CANCELED")))
 
@@ -150,9 +152,12 @@ SCHEDULED: %t")))
 (setq org-agenda-skip-scheduled-if-done t)
 
 
-(setq org-agenda-span 9
-      org-agenda-start-on-weekday nil
-      org-agenda-start-day "-2d")
+;;(setq org-agenda-span 9
+;;      org-agenda-start-on-weekday nil
+;;      org-agenda-start-day "-2d")
+
+(setq org-agenda-span 1
+      org-agenda-start-on-weekday nil)
 
 
 ;; TOFIX: next one not in use
@@ -394,9 +399,7 @@ SCHEDULED: %t")))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/errands.org" "~/org/chores-digital.org"))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -491,3 +494,5 @@ SCHEDULED: %t")))
 ;; (org-agenda nil "a")
 
 
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
