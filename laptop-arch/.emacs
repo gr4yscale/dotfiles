@@ -75,7 +75,8 @@
 
 
 ;; line wrapping
-(global-visual-line-mode 1)
+(global-visual-line-mode 0)
+;;(set-default 'truncate-lines t)
 
 ;; make yes or no prompts shorter
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -97,7 +98,11 @@
 (setq org-cycle-separator-lines 1) 
 
 
-(setq org-tags-column -80)
+;;(setq org-tags-column 8)
+(setq org-tags-column 80)
+(setq org-agenda-tags-column 80)
+
+
 
 ;; org paths
 
@@ -394,17 +399,12 @@ SCHEDULED: %t")))
 
 ;; Custom
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(custom-set-variables)
+
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+
+  '(org-todo ((t (:foreground "LightGoldenrod"))))
+ 
  )
 
 
