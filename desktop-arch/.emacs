@@ -75,7 +75,8 @@
 
 
 ;; line wrapping
-(global-visual-line-mode 1)
+(global-visual-line-mode 0)
+;;(set-default 'truncate-lines t)
 
 ;; make yes or no prompts shorter
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -97,13 +98,17 @@
 (setq org-cycle-separator-lines 1) 
 
 
-(setq org-tags-column -80)
+;;(setq org-tags-column 8)
+(setq org-tags-column 80)
+(setq org-agenda-tags-column 80)
+
+
 
 ;; org paths
 
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/notes.org")
-(setq org-agenda-files '("~/org/chores-life.org" "~/org/projects.org" "~/org/study.org" "~/org/outside.org" "~/org/social.org" "~/org/chores-digital.org"))
+(setq org-agenda-files '("~/org/todo.org" "~/org/project-study-serbian.org"))
 (setq org-journal-dir "~/org/journal/")
 
 ;; todo, in progress, waiting | done, canceled
@@ -132,7 +137,7 @@
 
 
 
-;; org capture templates
+;; ORG CAPTURE TEMPLATES
 (setq org-capture-templates
       '(("a" "My TODO task format." entry
          (file "index.org")
@@ -141,11 +146,27 @@ SCHEDULED: %t")))
 
 
 
-;; refile targets
+;; ORG REFILE
 (setq org-refile-targets '((nil :maxlevel . 3)
                                 (org-agenda-files :maxlevel . 3)))
-(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
-(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+(setq org-refile-targets
+   (quote
+    ((nil :maxlevel . 3)
+     ("todo.org" :maxlevel . 3)
+     ("lists.org" :maxlevel . 3)
+     ("project-study-serbian.org" :maxlevel . 2)
+     ("project-blog.org" :maxlevel . 2)
+     ("project-succulent.org" :maxlevel . 2)
+     ("reminders.org" :maxlevel . 2)
+     ("routine.org" :maxlevel . 2)
+     (org-agenda-files :maxlevel . 2))))
+
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go - this is useful for healm autocomplete
+(setq org-refile-use-outline-path 'file)                  ; Show full paths for refiling
+
+(setq org-refile-use-cache t)
+
 
 
 ;; agenda customization
@@ -394,17 +415,12 @@ SCHEDULED: %t")))
 
 ;; Custom
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(custom-set-variables)
+
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+
+  '(org-todo ((t (:foreground "LightGoldenrod"))))
+ 
  )
 
 

@@ -2,22 +2,32 @@
 # ~/.bashrc
 #
 
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# enable ** pattern used in pathname expansion context
+# ls **/*.py
+
+shopt -s globstar
+
+# nice prompt
+PS1='[\u@\h \W]\$ '
 
 # add scripts directory to path
 PATH=~/scripts:$PATH
 
-
+# ls colors
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 
+# TODO readline tweaks?
 
+export EDITOR=vim
 #fix emacs colors in tmux
 export TERM=xterm-256color
 
-###### unlimited history
+###### HISTORY
+shopt -s histappend 
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
@@ -49,7 +59,7 @@ alias simplenote='chromium --app="https://app.simplenote.com" --new-window &'
 alias messenger='chromium  --app=https://www.messenger.com'
 alias whatsapp='chromium --app=https://web.whatsapp.com'
 alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
-
+alias passthroughpost='chromium --app=https://discordapp.com/channels/385116113933172736/391008247282270208 --new-window &'
 
 #youtube-dl (vid)
 alias yt-vid="youtube-dl -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "
@@ -78,6 +88,7 @@ alias bb='i3lock -c 101010 -u && systemctl suspend'
 alias lock='i3lock -c 101010 -u'
 alias bm='sudo bashmount.sh'
 alias v='vim'
+
 
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 #alias hot_connect='sudo netctl start hotspot'

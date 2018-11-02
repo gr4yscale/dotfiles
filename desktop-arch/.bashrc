@@ -2,25 +2,36 @@
 # ~/.bashrc
 #
 
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# enable ** pattern used in pathname expansion context
+# ls **/*.py
+
+shopt -s globstar
+
+# nice prompt
+PS1='[\u@\h \W]\$ '
 
 # add scripts directory to path
 PATH=~/scripts:$PATH
 
-
+# ls colors
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 
+# TODO readline tweaks?
 
+export EDITOR=vim
 #fix emacs colors in tmux
 export TERM=xterm-256color
 
-###### unlimited history
+###### HISTORY
+shopt -s histappend 
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
+
 
 # make libvirt connection for console virsh commad play with virual manager GUI
 export LIBVIRT_DEFAULT_URI="qemu:///system"
@@ -39,13 +50,14 @@ export NVM_DIR="$HOME/.nvm"
 
 
 ###### chromium app aliases
+alias devdocs='chromium --app="https://devdocs.io/" --new-window &'
 alias gmail='chromium  --app=https://mail.google.com/mail/u/0/#starred'
 alias gcal='chromium --app="https://calendar.google.com" --new-window &'
 alias simplenote='chromium --app="https://app.simplenote.com" --new-window &'
 alias messenger='chromium  --app=https://www.messenger.com'
 alias whatsapp='chromium --app=https://web.whatsapp.com'
 alias mopidy='chromium --app=http://192.168.0.14:6680/musicbox_webclient/'
-
+alias passthroughpost='chromium --app=https://discordapp.com/channels/385116113933172736/391008247282270208 --new-window &'
 
 #youtube-dl (vid)
 alias yt-vid="youtube-dl -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "
@@ -67,12 +79,18 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
+alias a=archbeast-internal
 alias r='ranger-cd'
+alias w='sudo wifi-menu'
 alias t='tmux'
 alias ta='tmux a'
 alias bb='i3lock -c 101010 -u && systemctl suspend'
 alias lock='i3lock -c 101010 -u'
+alias bm='sudo bashmount.sh'
+alias v='vim'
 
+
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # VM RDP access
 alias windoze-floating='rdesktop -g 1920x1080 -P -z -x l -r sound:remote -0 -u gr4yscale -p p@ssw0rd 192.168.0.15'
