@@ -39,8 +39,10 @@ export NVM_DIR="$HOME/.nvm"
 alias archbeast-internal='ssh -p 39909 gr4yscale@192.168.0.11'
 alias databox-internal='ssh gr4yscale@192.168.0.14'
 alias archbeast="mosh --ssh='ssh -p 39909' -p 40045 gr4yscale@gr4yscale.duckdns.org"
+alias archbeast-ext="ssh -p 39909 gr4yscale@gr4yscale.duckdns.org"
 
 ###### chromium app aliases
+alias devdocs='chromium --app="https://devdocs.io/" --new-window &'
 alias gmail='chromium  --app=https://mail.google.com/mail/u/0/#starred'
 alias gcal='chromium --app="https://calendar.google.com" --new-window &'
 alias simplenote='chromium --app="https://app.simplenote.com" --new-window &'
@@ -67,12 +69,17 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 
+alias a=archbeast-internal
 alias r='ranger-cd'
+alias w='sudo wifi-menu'
 alias t='tmux'
 alias ta='tmux a'
 alias bb='i3lock -c 101010 -u && systemctl suspend'
 alias lock='i3lock -c 101010 -u'
+alias bm='sudo bashmount.sh'
+alias v='vim'
 
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 #alias hot_connect='sudo netctl start hotspot'
 #alias hot_disconnect='sudo netctl stop hotspot; sudo ip link set wlan0 down'
 
@@ -82,6 +89,16 @@ alias windoze-full="i3-msg 'workspace 10:extra'; rdesktop -g 1920x1050 -P -z -x 
 
 
 alias scrape='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent '
+
+alias radio-listen='mpv --msg-level=ao/sndio=no --script /usr/lib/mpv/mpris.so http://gr4yscale.duckdns.org:11001'
+#alias radio-listen='mplayer http://gr4yscale.duckdns.org:11001'
+alias radio-kill='sudo killall mpv' # should get the correct process id probably
+
+alias radio-next="ssh -p 39909 gr4yscale@gr4yscale.duckdns.org 'mpc next'"
+alias radio-prev="ssh -p 39909 gr4yscale@gr4yscale.duckdns.org 'mpc prev'"
+alias radio-pause="ssh -p 39909 gr4yscale@gr4yscale.duckdns.org 'mpc pause'"
+alias radio-play="ssh -p 39909 gr4yscale@gr4yscale.duckdns.org 'mpc play'"
+
 
 alias englishtoserbian='trans en:sr-Latn'
 alias serbiantoenglish='trans sr-Latn:en'
